@@ -1,0 +1,191 @@
+.log-form {
+    margin-top: 10px;
+    left: none;
+    right: 30px;
+    background: linear-gradient(to right, lightblue, deepskyblue);
+    
+}
+
+.head-content {
+    background-image: url(../static/backgroud.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+
+.form-group h4 {
+    color: azure;
+    text-align: center;
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.log-form input {
+    margin-bottom: 10px;
+}
+
+#cont {
+    width: 70%; 
+    margin: auto;
+    height: 50px;
+    margin-top: 30px;
+    text-transform: uppercase;
+    display: block;
+    color: white;
+    font-size: 25px;
+    letter-spacing: 20px;
+    font-weight: 600;
+    font-family: sans-serif;
+    background: linear-gradient(45deg, yellow, lightcoral);
+    border-radius: 40px;
+}
+
+#cont:hover {
+    width: 90%;
+    font-size: 30px;
+    height: 60px;
+}
+
+.mtb {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.about-text {
+    background-color: white;
+    opacity: 0.8;
+    font-family: sans-serif;
+    margin-top: 40px;
+}
+
+.about-text p {
+    color: rgb(10,10,10);
+    font-size: 2em;
+}
+
+.about-text h1 {
+    text-align: center;
+}
+
+.main {
+    display: block;
+    margin: auto;
+    width: 70%;
+    padding-top: 200px;
+}
+
+.main h1 {
+    font-size: 70px;
+    font-weight: bolder;
+    color: lightgoldenrodyellow;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+.main h2 {
+    text-transform: uppercase;
+    color: lightyellow;
+}
+
+.main h3 {
+    text-transform: uppercase;
+    color: white;
+}
+
+
+.own-navbar {
+    border: 1px solid white;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.nav {
+    left: none;
+    right: 90px;
+}
+
+.navbar-header a {
+    color: white;
+}
+
+.own-navbar ul li a {
+    color: white;
+    transition: 0.5s;
+}
+
+.own-navbar ul li a:hover {
+    background-color: transparent;
+    opacity: 0.6;
+}
+
+.active {
+    opacity: 0.6;
+}
+
+.about {
+    font-size: 13px;
+}
+
+.tooltip {
+    visibility: hidden;
+}
+
+.tooltip:hover {
+    visibility: visible;
+}
+
+.icon-floating {
+    display: block;
+    width: 256px;
+    height: 256px;
+    margin: auto;
+}
+
+.line {
+    height: 1px;
+    background-color: gray;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+.benefits h1, .benefits h2, .benefits h3 {
+    text-align: center;
+    
+}
+
+.benefits h2 {
+    text-transform: uppercase;
+}
+
+.img-container {
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.footer {
+    background-color: deepskyblue;
+    font-size: 20px;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.footer a {
+    color: aqua;
+    display: inline-block;
+    margin-right: 10px;
+    transition: 0.5s;
+}
+
+.footer a:hover {
+    opacity: 0.5;
+}
+
+.l-img {
+    width: 40px;
+}

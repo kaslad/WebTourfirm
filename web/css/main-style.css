@@ -1,0 +1,494 @@
+body {
+    background-color: rgb(250, 250, 250);
+    color: dimgrey;
+}
+
+p {
+    font-size: 20px;
+}
+
+.outer-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to top, transparent, lightblue);
+}
+
+.slog {
+    display: block;
+    margin: auto;
+    width: 20%;
+}
+
+.btn-toggle {
+    font-size: 15px;
+    background-color: transparent;
+    border: 2px solid gray;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+#num {
+    display: inline-block;
+    width: 13%;
+    margin-left: 23%;
+    cursor: auto;
+}
+
+#num_ch {
+    width: 15%;
+    cursor: auto;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.form-control {
+    -moz-color:black;
+    -moz-font-size: 20px;
+    padding: 25px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.way-group input {
+    display: inline;
+}
+
+.time-group input {
+    width: 49.1%;
+    margin: auto;
+    display: inline;
+    background-color: white !important;
+    cursor: pointer;
+}
+
+
+#srch {
+    margin: auto;
+    display: block;
+    font-size: 35px;
+    background: linear-gradient(to top, coral, lightcoral);
+    border-radius: 7px;
+    color: aliceblue;
+    padding: 0;
+    height: auto;
+}
+
+#srch:hover {
+    background: linear-gradient(to top, red, coral);
+}
+
+#search {
+    width: 80%;
+    margin: auto;
+    height: auto;
+    background-color: gainsboro;
+    border-radius: 7px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+}
+
+.form-group {
+    padding: 20px 20px;
+}
+
+.nav .active {
+    opacity: 0.7;
+    background-color: ghostwhite;
+}
+
+.m-nav {
+    text-align: center;
+    position: fixed;
+    width: 18%;
+    top: 40%;
+    transition: 1s;
+    font-weight: 200;
+    display: block;
+    border-radius: 5px;
+    font-size: 20px;
+    z-index: 1;
+}
+
+.danger {
+    background-color: orangered;
+    color: aliceblue;
+}
+
+.danger:hover {
+    background-color: rgb(242, 104, 0) !important;
+    color: aliceblue;
+}
+
+.nav a {
+    transition: 0.5s;
+}
+
+.nav span {
+    position: absolute;
+    right: 5px;
+    margin-top: -10px;
+    font-size: 30px;
+}
+
+.results {
+    background-color: transparent;
+    border-radius: 5px;
+    font-size: 25px;
+    color: dimgrey;
+}
+
+.result-list {
+    list-style: none;
+}
+
+.result-list li {
+    background-color: white;
+    border-radius: 10px;
+    height: auto;
+}
+
+.out-li {
+    margin-bottom: 10px !important;
+    width: 100%;
+}
+
+.inner-img {
+    border-radius: 8px;
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.title {
+    color: deepskyblue;
+    text-decoration: none !important;
+    font-size: 25px;
+    transition: 0.5s;
+}
+
+.title:hover {
+    color: rgb(0,140,255);
+}
+
+.ratio {
+    color: deepskyblue;
+    font-size: 23px;
+    position: absolute;
+    right: 0;
+}
+
+
+.price {
+    width: 80%;
+    font-size: 30px;
+    height: auto;
+    font-family: sans-serif;
+    color: green;
+    font-weight: 100;
+    border-radius: 7px;
+}
+
+.bot {
+    position: absolute;
+    bottom: 0;
+}
+
+
+.htl {
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    background-color: darkgreen;
+    color: white;
+}
+
+.htl:hover {
+    background-color: rgb(0,85,0);
+    color: white;
+    text-decoration: none;
+}
+
+.feats {
+    color: darkgreen;
+    font-size: 18px;
+}
+
+.sub {
+    font-size: 20px;
+    text-transform: uppercase;
+    list-style: none;
+}
+
+
+.under-imgs {
+    display: inline-block;
+    border-radius: 6px;
+    margin: auto;
+    margin-top: 4px;
+    margin-right: 4px;
+}
+
+.lbl {
+    font-size: 20px;
+    color: darkgreen;
+}
+
+.tabs-content {
+    margin: 40px 5px;  
+    background-color: transparent;
+}
+
+.tabs-content ul .active {
+    background-color: transparent;
+}
+
+}
+
+.tabs-content p {
+    padding: 10px;
+    font-size: 20px;
+    
+}
+
+ul.gallery-image {
+    list-style: none;
+    padding: 0;
+    max-height: 250px;
+    white-space: nowrap;
+}
+
+ul.gallery-image li {
+    display: inline;
+    margin: auto;
+}
+
+.centered {
+    text-align: center;
+    width: 100%;
+}
+
+.up {
+    text-transform: uppercase;
+}
+
+.mt {
+    margin-top: 30px;
+}
+
+.news-list p {
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+
+.news-list {
+    list-style: none;
+    padding: 0;
+    padding: 5px;
+}
+
+.news-list p {
+    margin: 0 10px;
+}
+
+.date {
+    text-align: right;
+    color: royalblue;
+    font-size: 16px;
+}
+
+.full {
+    display: block;
+    margin: auto;
+    width: 70%;
+}
+
+.nom {
+    margin: auto;
+}
+
+.review-ul {
+    list-style: none;
+    padding: 0;
+}
+
+.review-ul li {
+    background-color: white;
+}
+
+.review-ul li p {
+    font-size: 16px;
+}
+
+.money-group {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+#amount {
+    width: auto;
+}
+
+#slider {
+    width: auto;
+}
+
+.inline-group {
+    display: inline;
+}
+
+.toggler {
+    position: absolute;
+    bottom: 0;
+    
+}
+
+.sublist {
+    list-style: none;
+    width: 90%;
+    margin: auto;
+    padding: 0;
+}
+
+input[type="button"]:focus {
+    color: white;
+}
+
+.image:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.image-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+.image-modal-content {
+    margin: auto;
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    max-width: 700px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .image-modal-content {
+        width: 100%;
+    }
+}
+
+/* Add Animation - Zoom in the Modal */
+.image-modal-content { 
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+.h-nav {
+    background-color: rgba(255,255,255, 0.7);
+    width: 100%;
+}
+
+.h-nav ul {
+    display: block;
+    margin: auto;
+}
+
+.h-nav ul li {
+    text-align: center;
+    width: 110px;
+    margin-left: 20px;
+}
+
+#enter {
+    background-color: deepskyblue;
+    color: white;
+    border-radius: 3px;
+    font-size: 17px;
+    margin-top: 5px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+#enter:hover {
+    background-color: dodgerblue;
+}
+
+#register:hover {
+    background-color: darkgreen;
+}
+
+#register {
+    background-color: forestgreen;
+    border-radius: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.t-area {
+    resize: none;
+    width: 100%;
+}
+
+.log-gr {
+    margin-top: 15%;
+    width: 60%;
+}
+
+.btn {
+    font-size: 25px;
+    width: 100%;
+}
+
+.reg-gr {
+    margin-top: 6%;
+}
