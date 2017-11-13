@@ -2,19 +2,44 @@ package services;
 
 import dao.UserDao;
 import entities.User;
+import helpers.Hash;
+import helpers.MyError;
+import helpers.RegularExp;
 
 import java.util.List;
 
 public class UserService implements UserServiceInterface{
     private UserDao userDao;
+    MyError err = null;
     public UserService(){
         this.userDao = new UserDao();
     }
 
 
     @Override
-    public void add(String login, String password) {
+    public boolean add(String login, String password, String passwordAgain) {
 
+
+        if ( RegularExp.IsLoginRight(login) && RegularExp.IsPasswordRight(password) && RegularExp.IsPasswordRight(passwordAgain)){
+            if (password.equals(passwordAgain)) {
+                password = Hash.getMd5Apache(password);
+                User newUser = new User(login, password);
+                if (userDao.getUserByLogin( login) == null) {
+                    userDao.addUser(newUser);
+                    return true;
+                }
+                else{
+                    err = new MyError("", "user_exist");
+                    System.out.println("user_ex");
+                }
+
+            } else {
+                err = new MyError("", "Passwords do not match");
+            }
+        }else{
+            err = new MyError("", "wrong_login_or_password_inp");
+        }
+        return false;
     }
 
     @Override
@@ -22,23 +47,58 @@ public class UserService implements UserServiceInterface{
 
     }
 
+
     @Override
     public boolean check(String login, String password) {
-        return true;
+        User user = userDao.getUserByLogin(login);
+        System.out.println("here");
+        System.out.println("password");
+        if (user != null) {
+            System.out.println("user!=nulll");
+            System.out.println(password);
+            System.out.println(login);
+            System.out.println(user.getPassword());
+            if (Hash.getMd5Apache(password).equals(user.getPassword())) {
+                System.out.println("true");
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
     public User getUserByLogin(String login) {
+        err = null;
+        User user = null;
+        user = userDao.getUserByLogin(login);
+
+        if (user == null) {
+            err = new MyError("", "user_not_found");
+            return null;
+        } else {
+            return user;
+        }
+    }
+
+    @Override
+    public User getUserById(int id) {
+        err = null;
+        User user = userDao.getUserById(id);
+        if (user.equals(null)) {
+            err = new MyError("", "user_not_found");
+            return null;
+        } else {
+            return user;
+        }
+    }
+
+    @Override
+    public List<User> getAllUsers() {
         return null;
     }
 
     @Override
-    public User getUserById(String id) {
-        return null;
-    }
-
-    @Override
-    public List getAllUsers() {
-        return null;
+    public boolean existUserByLogin(String login) {
+        return getUserByLogin(login) != null;
     }
 }

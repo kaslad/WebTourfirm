@@ -18,13 +18,13 @@
 <div class="outer-back"></div>
 <div class="container log-gr">
     <div class="col-lg-8 col-lg-offset-2">
-        <form class="form-group well">
+        <form class="form-group well" method="post" action="#">
             <h1 class="centered up">Login now</h1>
             <label class="lbl">Login</label>
-            <input class="form-control" type="text" hint="Login"
+            <input class="form-control" name = "login" type="text" hint="Login"
                    placeholder="Login">
             <label class="lbl">Password</label>
-            <input class="form-control" type="password" hint="Password" placeholder="Password">
+            <input class="form-control" name = "password" type="password" hint="Password" placeholder="Password">
             <input class="btn htl" type="submit" value="Login">
             <h2><button class="btn" id="reg-btn">Register</button></h2>
         </form>
@@ -32,18 +32,15 @@
 </div>
 <div class="container reg-gr hidden">
     <div class="col-lg-8 col-lg-offset-2">
-        <form class="form-group well">
+        <form class="form-group well" action="#" method="post">
             <h1 class="centered up">Register now</h1>
             <label class="lbl">Login</label>
             <input class="form-control" type="text" hint="Login"
-                   placeholder="Login">
+                   placeholder="Login" name="login">
             <label class="lbl">Password</label>
-            <input class="form-control" type="password" hint="Password" placeholder="Password">
+            <input class="form-control" type="password" name="password" hint="Password" placeholder="Password">
             <label class="lbl">Confirm password</label>
-            <input class="form-control" type="password" hint="Password" placeholder="Password">
-            <label class="lbl">Name</label>
-            <input class="form-control" type="text" hint="Login"
-                   placeholder="Login">
+            <input class="form-control" type="password" name="password_again" [hint="Password" placeholder="Password">
             <input class="btn htl" type="submit" value="Register">
         </form>
     </div>

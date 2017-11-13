@@ -157,6 +157,10 @@ p {
     width: 100%;
 }
 
+.out-li:hover {
+    cursor: pointer;    
+}
+
 .inner-img {
     border-radius: 8px;
     display: block;
@@ -477,6 +481,7 @@ input[type="button"]:focus {
 .t-area {
     resize: none;
     width: 100%;
+    border-radius: 7px;
 }
 
 .log-gr {
@@ -491,4 +496,12 @@ input[type="button"]:focus {
 
 .reg-gr {
     margin-top: 6%;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: deepskyblue;
 }

@@ -1,17 +1,15 @@
 package entities;
 
-public class Tour {
+public class Hotel {
     private int id;
     private String name;
-    private int hotelId;
-    private boolean specialMark;
+    private int countStar;
     private String description;
 
-    public Tour(int id, String name, int hotelId, boolean specialMark, String description) {
+    public Hotel(int id, String name, int countStar, String description) {
         this.id = id;
         this.name = name;
-        this.hotelId = hotelId;
-        this.specialMark = specialMark;
+        this.countStar = countStar;
         this.description = description;
     }
 
@@ -31,20 +29,12 @@ public class Tour {
         this.name = name;
     }
 
-    public int getHotelId() {
-        return hotelId;
+    public int getCountStar() {
+        return countStar;
     }
 
-    public void setHotelId(int hotelId) {
-        this.hotelId = hotelId;
-    }
-
-    public boolean isSpecialMark() {
-        return specialMark;
-    }
-
-    public void setSpecialMark(boolean specialMark) {
-        this.specialMark = specialMark;
+    public void setCountStar(int countStar) {
+        this.countStar = countStar;
     }
 
     public String getDescription() {

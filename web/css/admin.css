@@ -1,0 +1,82 @@
+body {
+    font-family: Calibri Light, sans-serif;
+}
+
+h1 {
+    text-transform: capitalize;
+}
+
+.title {
+    font-size: 70px;
+}
+
+.table-title {
+    font-size: 50px;
+}
+
+#login-form {
+    width: 30%;
+    margin: auto;
+    margin-top: 150px;
+}
+
+.txt {
+    margin: auto;
+    padding: 20px;
+    font-size: 25px;
+}
+
+.center {
+    text-align: center;
+}
+
+.s-btn {
+    font-size: 20px;
+    height: auto;
+    background-color: green;
+    color: white;
+    transition: background-color 0.5s;
+}
+
+.s-btn:hover {
+    background-color: darkgreen;
+    color: white;
+}
+
+.mt {
+    margin-top: 20px;
+}
+
+.table {
+    width: 100%;
+    font-size: 30px;    
+}
+
+table {
+    margin: auto;
+    width: 90%;
+    border: lightgray;
+}
+
+table td {
+    padding: 5px;
+}
+
+.t-cont {
+    padding-left: 10px;
+}
+
+.t-edit, .t-del {
+    width: 14%;
+    text-align: center;
+}
+
+.navbar {
+    font-size: 20px;
+}
+
+.nav li {
+    position: absolute;
+    right: 5%;
+    top: 0;
+}

@@ -8,11 +8,11 @@ public class DbSingleton {
 
     private static final String URL = "jdbc:postgresql://localhost:5432/WebTourfirm";
     private static final String USERNAME = "postgres";
-    private static final String PASSWORD = "posgres";
+    private static final String PASSWORD = "postgres";
     private static final String DRIVER = "org.postgresql.Driver";
 
     private  static Connection connection = null;
-    private static Connection getConnection(){
+    public static Connection getConnection(){
         if(connection == null){
             try {
                 Class.forName(DRIVER);

@@ -27,7 +27,7 @@
 #cont {
     width: 70%; 
     margin: auto;
-    height: 50px;
+    height: auto;
     margin-top: 30px;
     text-transform: uppercase;
     display: block;
@@ -37,13 +37,13 @@
     font-weight: 600;
     font-family: sans-serif;
     background: linear-gradient(45deg, yellow, lightcoral);
-    border-radius: 40px;
+    border-radius: 10px;
 }
 
 #cont:hover {
     width: 90%;
-    font-size: 30px;
-    height: 60px;
+    font-size: 35px;
+    height: auto;
 }
 
 .mtb {

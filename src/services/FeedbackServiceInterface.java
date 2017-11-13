@@ -1,0 +1,11 @@
+package services;
+
+import entities.Feedback;
+
+import java.util.List;
+
+public interface FeedbackServiceInterface {
+    Feedback getFeedBackById(int id);
+    List<Feedback> getAllFeedbacks();
+    List<Feedback> getAllFeedBacksByUserId(int id);
+}

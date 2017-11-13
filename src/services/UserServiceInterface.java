@@ -5,12 +5,13 @@ import entities.User;
 import java.util.List;
 
 public interface UserServiceInterface {
-    void add(String login, String password);
+    boolean add(String login, String password, String passwordAgain);
     void delete(String id);
     boolean check(String login, String password);
     User getUserByLogin(String login);
-    User getUserById(String id);
+    User getUserById(int id);
     List getAllUsers();
+    boolean existUserByLogin(String login);
 
 
 

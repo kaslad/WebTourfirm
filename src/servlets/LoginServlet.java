@@ -25,17 +25,35 @@ public class LoginServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String password_again = request.getParameter("password_again");
         String login = request.getParameter("login").toLowerCase();
         String password = request.getParameter("password");
+        if(password_again != null){
+            System.out.println(login);
+            boolean isAdded = userService.add(login,password,password_again);
+            if(isAdded){
+                System.out.println("user  not exists");
+                userService.add(login,password,password_again);
+                request.getSession().setAttribute("current_user", login);
+                response.sendRedirect("/main");
+                return;
+            }
+            else{
+                response.sendRedirect("/login");
+                return;
+            }
+        }
 
         if (userService.check(login,password)) {
-                request.getSession().setAttribute("current_user", login);
-                response.sendRedirect("/login");
-                response.sendRedirect("/main");
+
+            request.getSession().setAttribute("current_user", login);
+            response.sendRedirect("/main");
+            return;
         }
-        else {
-            response.sendRedirect("/login?err=Wrong Username&username=" + login);
+        else{
+            response.sendRedirect("/login?err=Wrong Username&username=" + password);
         }
+
 
     }
 

@@ -8,6 +8,7 @@ $(document).ready(function() {
             display:"block"
         }); 
         $(img).attr("src", $(this).attr("src"));
+        return false;   
     });
 
     $(".close").on("click", function() {

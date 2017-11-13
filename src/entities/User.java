@@ -2,7 +2,7 @@ package entities;
 
 public class User {
     private String login;
-    private long id;
+    private int id;
     private String password;
     private String cookie;
 
@@ -11,9 +11,24 @@ public class User {
     private String fatherName;
     private String imgUrl;
     private String sex;
-    private Integer passport_series;
-    private Integer passport_number;
-    private String passport_who_gave;
+    private Integer passportSeries;
+    private Integer passportNumber;
+    private String passportWhoGave;
+
+    public User(String login, int id, String password, String cookie, String name, String lastName, String fatherName, String imgUrl, String sex, Integer passport_series, Integer passportNumber, String passport_who_gave) {
+        this.login = login;
+        this.id = id;
+        this.password = password;
+        this.cookie = cookie;
+        this.name = name;
+        this.lastName = lastName;
+        this.fatherName = fatherName;
+        this.imgUrl = imgUrl;
+        this.sex = sex;
+        this.passportSeries = passport_series;
+        this.passportNumber = passportNumber;
+        this.passportWhoGave = passport_who_gave;
+    }
 
     public String getLogin() {
         return login;
@@ -27,7 +42,7 @@ public class User {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -87,28 +102,28 @@ public class User {
         this.sex = sex;
     }
 
-    public Integer getPassport_series() {
-        return passport_series;
+    public Integer getPassportSeries() {
+        return passportSeries;
     }
 
-    public void setPassport_series(Integer passport_series) {
-        this.passport_series = passport_series;
+    public void setPassportSeries(Integer passportSeries) {
+        this.passportSeries = passportSeries;
     }
 
-    public Integer getPassport_number() {
-        return passport_number;
+    public Integer getPassportNumber() {
+        return passportNumber;
     }
 
-    public void setPassport_number(Integer passport_number) {
-        this.passport_number = passport_number;
+    public void setPassportNumber(Integer passportNumber) {
+        this.passportNumber = passportNumber;
     }
 
-    public String getPassport_who_gave() {
-        return passport_who_gave;
+    public String getPassportWhoGave() {
+        return passportWhoGave;
     }
 
-    public void setPassport_who_gave(String passport_who_gave) {
-        this.passport_who_gave = passport_who_gave;
+    public void setPassportWhoGave(String passportWhoGave) {
+        this.passportWhoGave = passportWhoGave;
     }
 
 
@@ -118,7 +133,8 @@ public class User {
 
     //id
     //password
-    public User(String login, String password) {
+    public User( String login, String password) {
+
         this.login = login;
         this.password = password;
     }

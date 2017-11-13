@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface UserDaoInterface {
     void addUser(User user);
-    void deleteUser(String id) ;
+    void deleteUser(int id) ;
 
     List getAllUsers();
-    User getUserById(String id);
+    User getUserById(int id);
     User getUserByLogin(String login);
 
 }

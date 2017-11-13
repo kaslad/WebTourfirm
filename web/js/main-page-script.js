@@ -19,7 +19,7 @@ function getListHeight(parent) {
 
 function priceToDown(parent) {
     var height = $(parent).height() + getListHeight(parent);
-    if (window.innerHeight >= 768) {
+    if (window.innerWidth >= 768) {
         $(parent).find(".inf").stop(true).animate({
             height: height
         }, 300);
@@ -31,7 +31,7 @@ function priceToDown(parent) {
 
 function priceToUp(parent) {
     var height = $(parent).height() - getListHeight(parent);
-    if (window.innerHeight >= 768) {
+    if (window.innerWidth >= 768) {
         $(parent).find(".inf").stop(true).animate({
             height: height
         }, 300)
@@ -96,7 +96,7 @@ $(document).ready(function() {
         $("[data-toggle='tooltip']").tooltip();
         
         var par = document.getElementsByClassName("out-li");
-        if (window.innerHeight >= 768) {
+        if (window.outerWidth >= 768) {
             $(par).each(function(n, el){
                 $(el).find(".inf").height($(el).height());
             })
@@ -107,4 +107,8 @@ $(document).ready(function() {
                 });
             })
         }
+    
+    $(".price").on("click", function() {
+        return false;
+    })
 });
