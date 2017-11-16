@@ -15,12 +15,13 @@ public class UserDao implements UserDaoInterface{
     public void addUser(User user) {
         System.out.println("da");
         if (DbSingleton.getConnection() != null && user != null) {
-            String request = "INSERT INTO \"user\" (login,password) VALUES (?,?)";
+            String request = "INSERT INTO \"user\" (login,password,phone_number) VALUES (?,?,?)";
 
             try {
                 PreparedStatement st = DbSingleton.getConnection().prepareStatement(request);
                 st.setString(1, user.getLogin());
                 st.setString(2, user.getPassword());
+                st.setString(3, "+7");
                 st.executeUpdate();
                 System.out.println("da");
             } catch (SQLException e) {
@@ -48,8 +49,8 @@ public class UserDao implements UserDaoInterface{
                                     resultSet.getString("password"), resultSet.getString("cookie"),
                                     resultSet.getString("name"), resultSet.getString("last_name"),
                                     resultSet.getString("father_name"), resultSet.getString("img_url"),
-                                    resultSet.getString("sex"), resultSet.getInt("passport_series"),
-                                    resultSet.getInt("passport_number"), resultSet.getString("passport_who_gave"));
+                                    resultSet.getString("sex"), resultSet.getString("passport_series"),
+                                    resultSet.getString("passport_number"), resultSet.getString("passport_who_gave"));
 
                     }
                 } catch (SQLException sql) {
@@ -71,8 +72,8 @@ public class UserDao implements UserDaoInterface{
                             resultSet.getString("password"), resultSet.getString("cookie"),
                             resultSet.getString("name"), resultSet.getString("last_name"),
                             resultSet.getString("father_name"), resultSet.getString("img_url"),
-                            resultSet.getString("sex"), resultSet.getInt("passport_series"),
-                            resultSet.getInt("passport_number"), resultSet.getString("passport_who_gave"));
+                            resultSet.getString("sex"), resultSet.getString("passport_series"),
+                            resultSet.getString("passport_number"), resultSet.getString("passport_who_gave"));
 
                 }
             } catch (SQLException sql) {
@@ -94,8 +95,8 @@ public class UserDao implements UserDaoInterface{
                     resultSet.getString("password"), resultSet.getString("cookie"),
                     resultSet.getString("name"), resultSet.getString("last_name"),
                     resultSet.getString("father_name"), resultSet.getString("img_url"),
-                    resultSet.getString("sex"), resultSet.getInt("passport_series"),
-                    resultSet.getInt("passport_number"), resultSet.getString("passport_who_gave"))
+                    resultSet.getString("sex"), resultSet.getString("passport_series"),
+                    resultSet.getString("passport_number"), resultSet.getString("passport_who_gave"))
             );
             return a;
         } catch (SQLException e) {

@@ -1,4 +1,20 @@
 var isChanged = true;
+var simpleStarCode = "&#9734;";
+var checkedStarCode = "&#9733;";
+var starSetted = 0;
+
+function reinitStars(from, to) {
+    var st = $(".star");
+    if (from === undefined) {
+        from = 0;
+    }
+    if (to === undefined) {
+        to = st.length;
+    }
+    for (var i = from; i <= to; i++) {
+        $(st[i]).html(simpleStarCode);
+    }
+}
 
 function marginImagesByParent(parent) {
     var images = $(parent).find(".under-imgs");
@@ -110,5 +126,24 @@ $(document).ready(function() {
     
     $(".price").on("click", function() {
         return false;
+    })
+    
+    reinitStars();
+    
+    $(".star").hover(function(e) {
+        var i = $(".star").index(e.currentTarget);
+        for (var j = 0; j <= i; j++) {
+            $(".star").get(j).innerHTML = checkedStarCode;
+        }
+    })
+    
+    $(".star").on("mouseout", function(e) {
+        var r = parseInt($("#rate-field").attr("rate"));
+        reinitStars(r + 1);
+    })
+    
+    $(".star").on("click", function(e) {
+        starSetted = $(".star").index(e.target);
+        $("#rate-field").attr("rate", starSetted);
     })
 });

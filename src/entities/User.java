@@ -11,11 +11,29 @@ public class User {
     private String fatherName;
     private String imgUrl;
     private String sex;
-    private Integer passportSeries;
-    private Integer passportNumber;
+    private String passportSeries;
+    private String passportNumber;
     private String passportWhoGave;
+    private String phoneNumber;
+    private String email;
 
-    public User(String login, int id, String password, String cookie, String name, String lastName, String fatherName, String imgUrl, String sex, Integer passport_series, Integer passportNumber, String passport_who_gave) {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public User(String login, int id, String password, String cookie, String name, String lastName, String fatherName, String imgUrl, String sex, String passport_series, String passportNumber, String passport_who_gave) {
         this.login = login;
         this.id = id;
         this.password = password;
@@ -28,6 +46,26 @@ public class User {
         this.passportSeries = passport_series;
         this.passportNumber = passportNumber;
         this.passportWhoGave = passport_who_gave;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "login='" + login + '\'' +
+                ", id=" + id +
+                ", password='" + password + '\'' +
+                ", cookie='" + cookie + '\'' +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", fatherName='" + fatherName + '\'' +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", sex='" + sex + '\'' +
+                ", passportSeries='" + passportSeries + '\'' +
+                ", passportNumber='" + passportNumber + '\'' +
+                ", passportWhoGave='" + passportWhoGave + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 
     public String getLogin() {
@@ -102,19 +140,19 @@ public class User {
         this.sex = sex;
     }
 
-    public Integer getPassportSeries() {
+    public String getPassportSeries() {
         return passportSeries;
     }
 
-    public void setPassportSeries(Integer passportSeries) {
+    public void setPassportSeries(String passportSeries) {
         this.passportSeries = passportSeries;
     }
 
-    public Integer getPassportNumber() {
+    public String getPassportNumber() {
         return passportNumber;
     }
 
-    public void setPassportNumber(Integer passportNumber) {
+    public void setPassportNumber(String passportNumber) {
         this.passportNumber = passportNumber;
     }
 

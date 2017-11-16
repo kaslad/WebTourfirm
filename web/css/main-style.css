@@ -1,6 +1,7 @@
 body {
     background-color: rgb(250, 250, 250);
     color: dimgrey;
+    font-family: "Goudy Bookletter 1911", sans-serif;
 }
 
 p {
@@ -13,7 +14,17 @@ p {
     left: 0;
     height: 100%;
     width: 100%;
-    background: linear-gradient(to top, transparent, lightblue);
+    background: linear-gradient(to top, rgb(250,250,250), transparent);
+}
+
+#img-b {
+    background-image: url(../static/backgroud.jpg);
+    width: 100%;
+    background-size: cover;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .slog {
@@ -481,7 +492,9 @@ input[type="button"]:focus {
 .t-area {
     resize: none;
     width: 100%;
-    border-radius: 7px;
+    border-radius: 3px;
+    font-size: 20px;
+    padding: 4px;
 }
 
 .log-gr {
@@ -494,6 +507,30 @@ input[type="button"]:focus {
     width: 100%;
 }
 
+.s-btn {
+    width: auto;
+    background-color: green;
+    color: white;
+    transition: color 0.5;
+}
+
+.s-btn:hover {
+    background-color: darkgreen;
+    color: white;
+}
+
+.c-btn {
+    width: auto;
+    background-color: brown;
+    color: white;
+    transition: color 0.5;
+}
+
+.c-btn:hover {
+    background-color: brown;
+    color: white;
+}
+
 .reg-gr {
     margin-top: 6%;
 }
@@ -504,4 +541,30 @@ input[type="button"]:focus {
 
 .blue {
     color: deepskyblue;
+}
+
+.white {
+    color: white;
+}
+
+.line {
+    height: 1px;
+    background-color: lightgrey;
+}
+
+.close {
+    color: black;
+}
+
+.pad {
+    padding: 10px;
+}
+
+.star {
+    cursor: pointer;
+}
+
+.pursh-form {
+    width: 50%;
+    margin: auto;
 }

@@ -30,12 +30,12 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         if(password_again != null){
             System.out.println(login);
-            boolean isAdded = userService.add(login,password,password_again);
-            if(isAdded){
+            User user = userService.add(login,password,password_again);
+            if(user != null){
                 System.out.println("user  not exists");
                 userService.add(login,password,password_again);
-                request.getSession().setAttribute("current_user", login);
-                response.sendRedirect("/main");
+                request.getSession().setAttribute("current_user", user);
+                response.sendRedirect("/profile");
                 return;
             }
             else{
@@ -43,11 +43,11 @@ public class LoginServlet extends HttpServlet {
                 return;
             }
         }
+        User user = userService.check(login,password);
+        if (user != null) {
 
-        if (userService.check(login,password)) {
-
-            request.getSession().setAttribute("current_user", login);
-            response.sendRedirect("/main");
+            request.getSession().setAttribute("current_user", user);
+            response.sendRedirect("/profile");
             return;
         }
         else{
@@ -63,6 +63,8 @@ public class LoginServlet extends HttpServlet {
         Map<String, Object> root = new HashMap<>();
         root.put("err", err);
         root.put("login", login);
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         ConfigHelper.render(request, response, "login.ftl", (HashMap)root);
 
     }

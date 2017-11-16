@@ -21,4 +21,12 @@
 <servlet-name>login</servlet-name>
 <servlet-class>servlets.LoginServlet</servlet-class>
 </servlet>
+    <servlet>
+        <servlet-name>profile</servlet-name>
+        <servlet-class>servlets.ProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>profile</servlet-name>
+        <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
 </web-app>

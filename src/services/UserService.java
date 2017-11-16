@@ -17,7 +17,7 @@ public class UserService implements UserServiceInterface{
 
 
     @Override
-    public boolean add(String login, String password, String passwordAgain) {
+    public User add(String login, String password, String passwordAgain) {
 
 
         if ( RegularExp.IsLoginRight(login) && RegularExp.IsPasswordRight(password) && RegularExp.IsPasswordRight(passwordAgain)){
@@ -26,7 +26,7 @@ public class UserService implements UserServiceInterface{
                 User newUser = new User(login, password);
                 if (userDao.getUserByLogin( login) == null) {
                     userDao.addUser(newUser);
-                    return true;
+                    return newUser;
                 }
                 else{
                     err = new MyError("", "user_exist");
@@ -39,7 +39,7 @@ public class UserService implements UserServiceInterface{
         }else{
             err = new MyError("", "wrong_login_or_password_inp");
         }
-        return false;
+        return null;
     }
 
     @Override
@@ -49,7 +49,7 @@ public class UserService implements UserServiceInterface{
 
 
     @Override
-    public boolean check(String login, String password) {
+    public User check(String login, String password) {
         User user = userDao.getUserByLogin(login);
         System.out.println("here");
         System.out.println("password");
@@ -60,10 +60,10 @@ public class UserService implements UserServiceInterface{
             System.out.println(user.getPassword());
             if (Hash.getMd5Apache(password).equals(user.getPassword())) {
                 System.out.println("true");
-                return true;
+                return user;
             }
         }
-        return false;
+        return null;
     }
 
     @Override
