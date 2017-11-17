@@ -41,7 +41,7 @@ public class FeedbackDao implements FeedbackDaoInterface {
     @Override
     public boolean addFeedBack(Feedback feedback) {
         if (DbSingleton.getConnection() != null && feedback != null) {
-            String request = "INSERT INTO feedback (id, feedback, user_id, rate, date, hotel_id) VALUES (?,?)";
+            String request = "INSERT INTO feedback (id, feedback, user_id, rate, date, hotel_id) VALUES (?,?,?,?,?,?)";
 
             try {
                 PreparedStatement st = DbSingleton.getConnection().prepareStatement(request);

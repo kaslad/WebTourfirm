@@ -1,5 +1,6 @@
 package entities;
 
+import java.sql.Timestamp;
 import java.util.Calendar;
 
 public class Feedback {

@@ -3,6 +3,7 @@ package dao;
 import configs.DbSingleton;
 import entities.Tour;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,9 +30,9 @@ public class TourDao implements TourDaoInterface {
         }
     }
 
+
     @Override
     public void deleteTour(int id) {
-
     }
 
     @Override
@@ -43,7 +44,8 @@ public class TourDao implements TourDaoInterface {
             List<Tour> a = new ArrayList<>();
             while (resultSet.next()) a.add(new Tour(resultSet.getInt("id"), resultSet.getString("name"),
                     resultSet.getInt("hotel_id"), resultSet.getBoolean("special_mark"),
-                    resultSet.getString("description")));
+                    resultSet.getString("description"), resultSet.getString("from_city"),
+                    resultSet.getString("to_city")));
 
 
             return a;
@@ -63,7 +65,8 @@ public class TourDao implements TourDaoInterface {
                 while (resultSet.next()) {
                       new Tour(resultSet.getInt("id"), resultSet.getString("name"),
                             resultSet.getInt("hotel_id"), resultSet.getBoolean("special_mark"),
-                            resultSet.getString("description"));
+                            resultSet.getString("description"),resultSet.getString("from_city"),
+                              resultSet.getString("to_city"));
 
                 }
             } catch (SQLException sql) {

@@ -17,6 +17,23 @@ public class User {
     private String phoneNumber;
     private String email;
 
+    public User(String login, int id, String password, String cookie, String name, String lastName, String fatherName, String imgUrl, String sex, String passportSeries, String passportNumber, String passportWhoGave, String phoneNumber, String email) {
+        this.login = login;
+        this.id = id;
+        this.password = password;
+        this.cookie = cookie;
+        this.name = name;
+        this.lastName = lastName;
+        this.fatherName = fatherName;
+        this.imgUrl = imgUrl;
+        this.sex = sex;
+        this.passportSeries = passportSeries;
+        this.passportNumber = passportNumber;
+        this.passportWhoGave = passportWhoGave;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
+
     public String getEmail() {
         return email;
     }

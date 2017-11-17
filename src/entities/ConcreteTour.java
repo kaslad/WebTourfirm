@@ -1,11 +1,12 @@
 package entities;
 
-import java.time.LocalDate;
+import java.util.Calendar;
 
 public class ConcreteTour {
     private int id;
     private int tourId;
-    private LocalDate date;
+    private Calendar date;
+    private Calendar dateEnd;
     private String airline;
     private String nutritionType;
     private int price;
@@ -22,15 +23,25 @@ public class ConcreteTour {
         return tourId;
     }
 
+    public ConcreteTour(int id, int tourId, long date, long dateEnd, String airline, String nutritionType, int price) {
+        this.id = id;
+        this.tourId = tourId;
+        this.date.setTimeInMillis(date);
+        this.date.setTimeInMillis(dateEnd);
+        this.airline = airline;
+        this.nutritionType = nutritionType;
+        this.price = price;
+    }
+
     public void setTourId(int tourId) {
         this.tourId = tourId;
     }
 
-    public LocalDate getDate() {
+    public Calendar getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Calendar date) {
         this.date = date;
     }
 
@@ -56,5 +67,13 @@ public class ConcreteTour {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public Calendar getDateEnd() {
+        return dateEnd;
+    }
+
+    public void setDateEnd(Calendar dateEnd) {
+        this.dateEnd = dateEnd;
     }
 }

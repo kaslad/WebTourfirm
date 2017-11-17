@@ -58,7 +58,6 @@
                 <li class="active"><a href="#all" data-toggle="tab">All Tours</a></li>
                 <li><a href="#passed" data-toggle="tab">Passed Tours</a></li>
                 <li><a href="#incomming" data-toggle="tab">Incoming Tours</a></li>
-                <li><a href="#comments" data-toggle="tab">Comments</a></li>
                 <li><a href="#info" data-toggle="tab">Info</a></li>
             </ul>
             <div class="tab-content">
@@ -107,7 +106,6 @@
                 <div class="tab-pane fade" id="passed">
                     <ul class="result-list mt">
                         <li class="well out-li row">
-                            <div class="row">
                                 <div class="col-lg-3">
                                     <a href="" class="title">
                                         <h3 class="nom">Kazan - Thailand</h3>
@@ -124,7 +122,6 @@
                                     <input class="htl price btn" value="$600" type="button">
                                     <h3 class="red">Passed</h3>
                                 </div>
-                            </div>
                         </li>
                     </ul>
                 </div>
@@ -150,18 +147,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="tab-pane fade" id="comments">
-                    <ul class="review-ul mt">
-                        <li class="well">
 
-                            <h3 class="nom"><a href="" class="htl">Kazan-New York</a></h3>
-                            <h2 class=""><a href="" class="title">Julia Suzi</a></h2>
-                            <h2 class="nom">&#9733;&#9733;&#9733;&#9733;&#9734;</h2>
-                            <p>Aenean efficitur eu diam sed volutpat. Vestibulum malesuada risus nisl, sed convallis sem accumsan sed. Phasellus consectetur lectus eleifend mi porta efficitur. Etiam aliquam, leo quis bibendum tempor, eros dui euismod dui, vitae tincidunt odio mi ut dui. Etiam sed augue in augue pharetra interdum. Aliquam vulputate condimentum cursus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                            <h5 class="date">on     21.11.11</h5>
-                        </li>
-                    </ul>
-                </div>
                 <div class="tab-pane fade" id="info">
                     <div class="pad">
                         <#if name?has_content>
@@ -228,7 +214,7 @@
             <div class="modal-body">
 
                 <form action="/profile?id=${id}" class="form-group" id="form1" method="post">
-                    <label class="lbl">Name:</label>
+                    <label class="lbl">Login:</label>
                     <#if login?has_content>
                         <input class="form-control" type="text" hint="" name = "login" value="${login}">
                     <#else>
@@ -240,7 +226,7 @@
                     <#else>
                         <input class="form-control" type="text" hint="" name = "name" value="">
                     </#if>
-                    <label class="lbl">Surname:</label>
+                    <label class="lbl">Patronymic:</label>
                     <#if father_name?has_content>
                         <input class="form-control" type="text" hint="" name = "father_name" value="${father_name}">
                     <#else>
@@ -252,12 +238,13 @@
                     <#else>
                         <input class="form-control" type="text" hint="" name = "last_name" value="">
                     </#if>
-                    <label class="lbl">Email:</label>
-                    <#if email?has_content>
-                        <input class="form-control" type="text" hint="" name ="email" value="${email}">
+                    <label class="lbl">Mobile</label>
+                    <#if phone_number?has_content>
+                        <input class="form-control" type="text" hint="" name="phone_number" value="${phone_number}">
                     <#else>
-                        <input class="form-control" type="text" hint="" name ="email" value="">
+                        <input class="form-control" type="text" hint="" name="phone_number"  >
                     </#if>
+
 
 
 
@@ -282,12 +269,7 @@
                     <#else>
                         <input class="form-control" type="text" hint="" name="passport_who_gave" >
                     </#if>
-                        <label class="lbl">Mobile</label>
-                    <#if mobile_phone?has_content>
-                        <input class="form-control" type="text" hint="" name="mobile_phone" value="${mobile_phone}">
-                    <#else>
-                        <input class="form-control" type="text" hint="" name="mobile_phone"  >
-                    </#if>
+
                         <!-- <button class="c-btn btn btn-default" data-dismiss="modal" form="form2" value="Cancel">Cancel</button> -->
                     </div>
                     <div class="line"></div>
@@ -303,6 +285,16 @@
                 <button class="c-btn btn btn-default" type="reset" data-dismiss="modal">Cancel</button>
                 <button class="s-btn btn btn-default" type="submit" form="form1" value="Save">Save</button>
             </div>
+                <script>
+                $(document).ready(function()
+                {
+                // codes works on all bootstrap modal windows in application
+                $('.modal fade').on('hidden.bs.modal', function(e)
+                {
+                $(this).removeData();
+                }) ;
+                });
+                </script>
         </div>
     </div>
 </div>

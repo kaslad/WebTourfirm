@@ -56,10 +56,11 @@ public class ProfileServlet extends HttpServlet {
 
         password = Hash.getMd5Apache(password);
         BDChanger.update("\"user\"", "passport_who_gave", id, "'" + passportWhoGave + "'");
-        request.getSession().setAttribute("current_user", new User(login, id, password,"", name,lastName, fatherName, imgUrl, sex, passportSeries, passportNumber, passportWhoGave));
+        request.getSession().setAttribute("current_user", new User(login, id, password,"", name,lastName, fatherName, imgUrl, sex, passportSeries, passportNumber, passportWhoGave, phoneNumber, email));
 
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+
 
         response.sendRedirect("/profile");
 

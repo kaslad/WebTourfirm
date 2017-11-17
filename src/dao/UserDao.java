@@ -50,7 +50,8 @@ public class UserDao implements UserDaoInterface{
                                     resultSet.getString("name"), resultSet.getString("last_name"),
                                     resultSet.getString("father_name"), resultSet.getString("img_url"),
                                     resultSet.getString("sex"), resultSet.getString("passport_series"),
-                                    resultSet.getString("passport_number"), resultSet.getString("passport_who_gave"));
+                                    resultSet.getString("passport_number"), resultSet.getString("passport_who_gave"), resultSet.getString("phone_number"),
+                                    resultSet.getString("email"));
 
                     }
                 } catch (SQLException sql) {
@@ -73,7 +74,9 @@ public class UserDao implements UserDaoInterface{
                             resultSet.getString("name"), resultSet.getString("last_name"),
                             resultSet.getString("father_name"), resultSet.getString("img_url"),
                             resultSet.getString("sex"), resultSet.getString("passport_series"),
-                            resultSet.getString("passport_number"), resultSet.getString("passport_who_gave"));
+                            resultSet.getString("passport_number"), resultSet.getString("passport_who_gave"), resultSet.getString("phone_number"),
+                            resultSet.getString("email"));
+
 
                 }
             } catch (SQLException sql) {
@@ -85,7 +88,7 @@ public class UserDao implements UserDaoInterface{
     }
 
     @Override
-    public List getAllUsers() {
+    public List<User> getAllUsers() {
         String request = ("SELECT * FROM \"user\"");
         try {
             PreparedStatement st = DbSingleton.getConnection().prepareStatement(request);
@@ -96,8 +99,10 @@ public class UserDao implements UserDaoInterface{
                     resultSet.getString("name"), resultSet.getString("last_name"),
                     resultSet.getString("father_name"), resultSet.getString("img_url"),
                     resultSet.getString("sex"), resultSet.getString("passport_series"),
-                    resultSet.getString("passport_number"), resultSet.getString("passport_who_gave"))
-            );
+                    resultSet.getString("passport_number"), resultSet.getString("passport_who_gave"),
+                    resultSet.getString("phone_number"),
+                    resultSet.getString("email")));
+
             return a;
         } catch (SQLException e) {
             e.printStackTrace();

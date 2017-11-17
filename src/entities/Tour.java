@@ -6,8 +6,10 @@ public class Tour {
     private int hotelId;
     private boolean specialMark;
     private String description;
+    private String toCity;
+    private String fromCity;
 
-    public Tour(int id, String name, int hotelId, boolean specialMark, String description) {
+    public Tour(int id, String name, int hotelId, boolean specialMark, String description, String toCity, String fromCity) {
         this.id = id;
         this.name = name;
         this.hotelId = hotelId;
