@@ -42,11 +42,11 @@
                 <div class="way-group">
                     <div class="col-lg-6 col-md-6">
                         <input class="form-control" type="text" id="form-from-place" placeholder="Where from..."
-                               name = "where_from" hint="Where from...">
+                               name = "from_city" hint="Where from...">
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <input class="form-control" type="text" id="form-to-place"
-                               placeholder="Where to..." name="where_to" hint="Where to...">
+                               placeholder="Where to..." name="to_city" hint="Where to...">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 time-group">
@@ -57,7 +57,9 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="money-group">
-                        <div id="slider" ></div>
+                        <div id="slider" >
+                            <div id="slid"
+                        </div>
                         <h3 id="amount" class="centered"></h3>
                     </div>
                 </div>
@@ -68,122 +70,50 @@
         </div>
         <div class="results">
             <ul class="result-list">
-                <li class="well container out-li row" data-toggle="collapse" data-target="#sl1">
-                    <div class="col-lg-3 col-md-3">
-                        <img src="static/hotel.jpg" class="inner-img image">
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <a class="title" href="">Kazan &rarr; New York</a>
-                        <div><a class="htl" href="">Grand America Hotel</a></div>
-                        <button toggled="false"
-                                class="btn-toggle">Main features <span class="caret"></span></button>
-                        <ul style="list-style: outside" class="feats collapse" h="0">
-                            <li>Breakfast and lunch are included</li>
-                            <li>Sea in the hotel's area</li>
-                            <li>Great view from hotel's appartment</li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-3 inf">
-                        <div class="ratio">
-                            9.3 &#9733;
+                <#list toursAndConcTours as key, value>
+                    <li class="well container out-li row" data-toggle="collapse" data-target="#sl1">
+                        <div class="col-lg-3 col-md-3">
+                            <img src="static/hotel.jpg" class="inner-img image">
                         </div>
-                        <input class="btn htl price bot" value="$700" type="button" >
-                    </div>
-                </li>
-                <ul class="sublist collapse" id="sl1">
-                    <li class="well out-li row">
-                        <div class="col-lg-3">
-                            <a href="" class="title">
-                                <h3>Kazan - Thailand</h3>
-                            </a>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="feats sub">
-                                <il>+ Dinner</il>
-                                <li>+ Extra bed</li>
+                        <div class="col-lg-6 col-md-6">
+                            <a class="title" href="">${key.tour.fromCity} &rarr; ${key.tour.toCity}</a>
+                            <div><a class="htl" href="">${key.hotel.name}</a></div>
+                            <button toggled="false"
+                                    class="btn-toggle">Main features <span class="caret"></span></button>
+                            <ul style="list-style: outside" class="feats collapse" h="0">
+                                <li>key.hotel.description</li>
                             </ul>
                         </div>
-                        <div class="col-lg-3">
-                            <input class="htl price btn" value="$600" type="button">
+                        <div class="col-lg-3 col-md-3 inf">
+                            <div class="ratio">
+                                9.3 &#9733;
+                            </div>
+                            <input class="btn htl price bot" value="$700" type="button" >
                         </div>
                     </li>
-                    <li class="well out-li row">
-                        <div class="col-lg-3">
-                            <a href="" class="title">
-                                <h3>Kazan - Thailand</h3>
-                            </a>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="feats sub">
-                                <il>+ Dinner</il>
-                                <li>+ Extra bed</li>
-                                <li>+ All inclusive</li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-3">
-                            <input class="htl price btn" value="$800" type="button">
-                        </div>
-                    </li>
+                        <ul class="sublist collapse" id="sl1">
+                            <#list value as concTour>
+                                <li class="well out-li row">
+                                    <div class="col-lg-3">
+                                        <a href="" class="title">
+                                            <h3>${key.tour.fromCity} &rarr; ${key.tour.toCity}</h3>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <ul class="feats sub">
+                                            <il>+ Nutrition type: ${concTour.nutritionType}</il>
+                                            <li>+ Airline: ${concTour.airline}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <input class="htl price btn" value="${concTour.price}" type="button">
+                                    </div>
+                                </li>
+
+                    </#list>
+                </#list>
                 </ul>
-                <li class="well container out-li row" data-toggle="collapse" data-target="#sl2">
-                    <div class="col-lg-3">
-                        <img src="static/hotel.jpg" class="inner-img image">
-                    </div>
-                    <div class="col-lg-6">
-                        <a class="title" href="">Kazan &rarr; New York</a>
-                        <div><a class="htl" href="">Grand America Hotel</a></div>
-                        <button toggled="false"
-                                class="btn-toggle">Main features <span class="caret"></span></button>
-                        <ul style="list-style: outside" class="feats collapse" h="0">
-                            <li>Breakfast and lunch are included</li>
-                            <li>Sea in the hotel's area</li>
-                            <li>Great view from hotel's appartment</li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 inf">
-                        <div class="ratio">
-                            9.3 &#9733;
-                        </div>
-                        <input class="btn htl price bot" value="$700" type="button">
-                    </div>
-                </li>
-                <ul class="sublist collapse" id="sl2">
-                    <li class="well out-li row">
-                        <div class="col-lg-3">
-                            <a href="" class="title">
-                                <h3>Kazan - Thailand</h3>
-                            </a>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="feats sub">
-                                <il>+ Dinner</il>
-                                <li>+ Extra bed</li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-3">
-                            <input class="htl price btn" value="$600" type="button">
-                        </div>
-                    </li>
-                    <li class="well out-li row">
-                        <div class="col-lg-3">
-                            <a href="" class="title">
-                                <h3>Kazan - Thailand</h3>
-                            </a>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="feats sub">
-                                <il>+ Dinner</il>
-                                <li>+ Extra bed</li>
-                                <li>+ All inclusive</li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-3">
-                            <input class="htl price btn" value="$800" type="button">
-                        </div>
-                    </li>
-                </ul>
-            </ul>
-        </div>
+            </div>
     </div>
 </div>
 

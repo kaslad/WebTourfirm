@@ -30,7 +30,7 @@
 <ul class="nav m-nav nav-stacked hidden-xs hidden-sm">
     <li><a href="">Main<span>&rsaquo;</span></a></li>
     <li><a href="">Hotels<span>&rsaquo;</span></a></li>
-    <li><a href="">Tours<span>&rsaquo;</span></a></li>
+    <li><a href="/tours">Tours<span>&rsaquo;</span></a></li>
     <li><a href="" class="danger">Hot sales<span>&rsaquo;</span></a></li>
     <li><a href="">About us<span>&rsaquo;</span></a></li>
     <li><a href="" class="active">Profile<span>&rsaquo;</span></a></li>

@@ -2,7 +2,9 @@ package dao;
 
 import configs.DbSingleton;
 import entities.ConcreteTour;
+import entities.Hotel;
 import entities.Tour;
+import entities.TourHotel;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -39,10 +41,10 @@ public class ConcreteTourDao implements ConcreteTourDaoInterface {
         }
         return null;
     }
-    private Map<Tour,List<ConcreteTour>> getAllConcreteToursByTour(String fromCity, String toCity, Calendar fromDate, Calendar toDate, int fromPrice, int toPrice){
-        String request = "select t.id, t.hotel_id, t.description, t.from_city, t.to_city,t.special_mark, t.name,t.id,c.id, c.date, c.date_end,\n" +
+    public Map<TourHotel,List<ConcreteTour>> getAllConcreteToursByTourParams(String fromCity, String toCity, Calendar fromDate, Calendar toDate, int fromPrice, int toPrice){
+        String request = "select t.id, t.hotel_id, t.description, t.from_city, t.to_city,t.special_mark, t.name,t.id, h.id, h.name, h.count_star, h.description, c.id, c.date, c.date_end,\n" +
                 "c.airline, c.nutrition_type, c.price, \n" +
-                " from tour as t   join concrete_tour as c on c.tour_id = t.id \n" +
+                " from tour as t   join concrete_tour as c on c.tour_id = t.id JOIN hotel as h on h.id = t.hotel_id\n" +
                 " where t.from_city = ? and t.to_city = ? and price >= ? and price <= and date <= ? and date >= ?";
         try {
             PreparedStatement st = DbSingleton.getConnection().prepareStatement(request);
@@ -53,26 +55,27 @@ public class ConcreteTourDao implements ConcreteTourDaoInterface {
             st.setInt(5, fromPrice);
             st.setInt(6, toPrice);
             ResultSet resultSet = st.executeQuery();
-            Map<Tour, List<ConcreteTour>> map = new HashMap<>();
-            Set<Integer> hotelIdSet = new HashSet<>();
+            Map<TourHotel, List<ConcreteTour>> map = new HashMap<>();
+            Set<Integer> tourIdSet = new HashSet<>();
             while (resultSet.next()) {
-                Integer id = resultSet.getInt("t.id");
+                Integer id = resultSet.getInt("h.id");
                 ConcreteTour concreteTour = new ConcreteTour(resultSet.getInt("c.id"),
                         resultSet.getInt("c.tour_id"), resultSet.getLong("c.date"),
                         resultSet.getLong("c.date_end"),
                         resultSet.getString("c.airline"), resultSet.getString("c.nutrition_type"),
                         resultSet.getInt("c.price"));
-                if (hotelIdSet.contains(id)) {
-                    map.get(id).add(concreteTour);
+                TourHotel tourHotel = new TourHotel(new Tour(resultSet.getInt("t.id"), resultSet.getString("t.name"),
+                        resultSet.getInt("t.hotel_id"), resultSet.getBoolean("t.special_mark"),
+                        resultSet.getString("t.description"), resultSet.getString("t.from_city"),
+                resultSet.getString("t.to_city")),new Hotel(resultSet.getInt("h.id"), resultSet.getString("h.name"), resultSet.getInt("h.count_star"), resultSet.getString("h.description")));
+                if (map.containsKey(tourHotel)) {
+                    map.get(tourHotel).add(concreteTour);
                 } else {
-                    hotelIdSet.add(id);
+                    tourIdSet.add(id);
                     List<ConcreteTour> list = new ArrayList<>();
                     list.add(concreteTour);
 
-                    map.put(new Tour(resultSet.getInt("t.id"), resultSet.getString("t.name"),
-                            resultSet.getInt("t.hotel_id"), resultSet.getBoolean("t.special_mark"),
-                            resultSet.getString("t.description"), resultSet.getString("t.from_city"),
-                            resultSet.getString("t.to_city")), list);
+                    map.put(tourHotel, list);
                 }
             }
 
@@ -109,5 +112,7 @@ public class ConcreteTourDao implements ConcreteTourDaoInterface {
         return null;
 
     }
+
+
 
 }

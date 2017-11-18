@@ -104,10 +104,14 @@ $(document).ready(function() {
                 values:[0, 300],
                 slide: function(event, el) {
                     $( "#amount" ).html( "$" + el.values[ 0 ] + " - $" + el.values[ 1 ] );
+                    $("#slider").attr("from_price", el.values[0]);
+                    $("#slider").attr("to_price", el.values[1]);
                 }
+
         });
         $( "#amount" ).html( "$" + $( "#slider").slider("values",0) + " - $" + $( "#slider" ).slider( "values", 1 ) );
         });
+
         
         $("[data-toggle='tooltip']").tooltip();
         

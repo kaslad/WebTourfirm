@@ -3,15 +3,19 @@ package services;
 import dao.ConcreteTourDao;
 import entities.ConcreteTour;
 import entities.Tour;
+import entities.TourHotel;
 import helpers.MyError;
 
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
 public class ConcreteTourService implements ConcereteTourServiceInterface {
     private ConcreteTourDao concreteTourDao;
     MyError err = null;
-    ConcreteTourService(){
+    public ConcreteTourService(){
         ConcreteTourDao concreteTourDao = new ConcreteTourDao();
     }
     @Override
@@ -38,10 +42,10 @@ public class ConcreteTourService implements ConcereteTourServiceInterface {
     }
 
     @Override
-    public Map<Tour, List<ConcreteTour>> getTourAndItsConcreteTours(String fromCity, String toCity, String fromDate, String toDate, String fromPrice, String toPrice) {
+    public Map<TourHotel, List<ConcreteTour>> getTourAndItsConcreteTours(String fromCity, String toCity, Calendar fromDate, Calendar toDate, int fromPrice, int toPrice) {
 
-        Map<Tour, List<ConcreteTour>> map = null;
-        map = getTourAndItsConcreteTours(fromCity, toCity, fromDate, fromCity, fromPrice, toPrice);
+        Map<TourHotel, List<ConcreteTour>> map = null;
+        map = concreteTourDao.getAllConcreteToursByTourParams(fromCity, toCity, fromDate, toDate, fromPrice, toPrice);
 
         err = null;
 
