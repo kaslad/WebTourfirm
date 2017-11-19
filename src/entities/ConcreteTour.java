@@ -1,12 +1,12 @@
 package entities;
 
-import java.util.Calendar;
+
 
 public class ConcreteTour {
     private int id;
     private int tourId;
-    private Calendar date;
-    private Calendar dateEnd;
+    private String date;
+    private String dateEnd;
     private String airline;
     private String nutritionType;
     private int price;
@@ -23,11 +23,11 @@ public class ConcreteTour {
         return tourId;
     }
 
-    public ConcreteTour(int id, int tourId, long date, long dateEnd, String airline, String nutritionType, int price) {
+    public ConcreteTour(int id, int tourId, String date, String dateEnd, String airline, String nutritionType, int price) {
         this.id = id;
         this.tourId = tourId;
-        this.date.setTimeInMillis(date);
-        this.date.setTimeInMillis(dateEnd);
+        this.date = date;
+        this.dateEnd = dateEnd;
         this.airline = airline;
         this.nutritionType = nutritionType;
         this.price = price;
@@ -37,11 +37,11 @@ public class ConcreteTour {
         this.tourId = tourId;
     }
 
-    public Calendar getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Calendar date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -69,11 +69,11 @@ public class ConcreteTour {
         this.price = price;
     }
 
-    public Calendar getDateEnd() {
+    public String getDateEnd() {
         return dateEnd;
     }
 
-    public void setDateEnd(Calendar dateEnd) {
+    public void setDateEnd(String dateEnd) {
         this.dateEnd = dateEnd;
     }
 }

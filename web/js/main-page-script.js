@@ -104,16 +104,15 @@ $(document).ready(function() {
                 values:[0, 300],
                 slide: function(event, el) {
                     $( "#amount" ).html( "$" + el.values[ 0 ] + " - $" + el.values[ 1 ] );
-                    $("#slider").attr("from_price", el.values[0]);
-                    $("#slider").attr("to_price", el.values[1]);
+                    $("#slider").find("input").val(el.values[0] + "-" + el.values[1]);
                 }
-
         });
         $( "#amount" ).html( "$" + $( "#slider").slider("values",0) + " - $" + $( "#slider" ).slider( "values", 1 ) );
         });
+        $("#slider").find("input").val("0-300");
 
-        
-        $("[data-toggle='tooltip']").tooltip();
+
+    $("[data-toggle='tooltip']").tooltip();
         
         var par = document.getElementsByClassName("out-li");
         if (window.outerWidth >= 768) {

@@ -8,7 +8,7 @@
           <element id="module-output" name="TourCompany" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="org.freemarker:freemarker:2.3.23" />
+          <element id="library" level="project" name="org.freemarker:freemarker:2.3.25-incubating" />
         </element>
       </element>
     </root>

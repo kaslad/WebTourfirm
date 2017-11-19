@@ -22,5 +22,6 @@ ConfigHelper {
         } catch (TemplateException e) {
             e.printStackTrace();
         }
+        response.setCharacterEncoding("UTF-8");
     }
 }

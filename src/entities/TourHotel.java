@@ -1,5 +1,7 @@
 package entities;
 
+import helpers.Hash;
+
 public class TourHotel {
     private Tour tour;
     private Hotel hotel;
@@ -11,6 +13,11 @@ public class TourHotel {
             return tourHotel.getHotel().getId() == hotel.getId() && tourHotel.getTour().getId() == tour.getId();
         }
         return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return (tour.getId() + "#" + hotel.getId()).hashCode();
     }
 
     public Tour getTour() {

@@ -9,6 +9,7 @@ public class ConfigSingleton {
     private static Configuration cfg = null;
     public static Configuration getConfig(ServletContext sc) {
         if (cfg == null){
+
             cfg = new Configuration();
             cfg.setServletContextForTemplateLoading(
                     sc,
@@ -17,6 +18,7 @@ public class ConfigSingleton {
             cfg.setTemplateExceptionHandler(
                     TemplateExceptionHandler.HTML_DEBUG_HANDLER
             );
+            cfg.setDefaultEncoding("UTF-8");
         }
         return cfg;
     }

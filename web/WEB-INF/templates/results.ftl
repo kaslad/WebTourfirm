@@ -16,9 +16,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div id="img-b"><div class="outer-back"></div></div>
+<div id="img-b">
+    <div class="outer-back"></div>
+</div>
 
-<div id="img-b"><div class="outer-back"></div></div>
+<div id="img-b">
+    <div class="outer-back"></div>
+</div>
 <nav class="navbar navbar-default h-nav">
     <div class="container-fluid">
         <ul class="nav navbar-nav">
@@ -42,7 +46,7 @@
                 <div class="way-group">
                     <div class="col-lg-6 col-md-6">
                         <input class="form-control" type="text" id="form-from-place" placeholder="Where from..."
-                               name = "from_city" hint="Where from...">
+                               name="from_city" hint="Where from...">
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <input class="form-control" type="text" id="form-to-place"
@@ -56,64 +60,75 @@
                            placeholder="To..." name="to_date" hint="To..." readonly>
                 </div>
                 <div class="col-lg-6 col-md-6">
-                    <div class="money-group">
-                        <div id="slider" >
-                            <div id="slid"
+                    <div class="col-lg-6 col-md-6">
+                        <div class="money-group">
+                            <div id="slider"><input name="price" value="0-300" style="display: none"></div>
+                            <h3 id="amount" class="centered"></h3>
                         </div>
-                        <h3 id="amount" class="centered"></h3>
                     </div>
                 </div>
                 <div class="full">
-                    <input type="button" value="Search" id="srch" class="form-control">
+                    <input type="submit" value="Search" id="srch" class="form-control">
                 </div>
             </form>
         </div>
+
+
         <div class="results">
             <ul class="result-list">
-                <#list toursAndConcTours as key, value>
+            <#if list?has_content>
+                <#list list as prop>
                     <li class="well container out-li row" data-toggle="collapse" data-target="#sl1">
                         <div class="col-lg-3 col-md-3">
                             <img src="static/hotel.jpg" class="inner-img image">
                         </div>
                         <div class="col-lg-6 col-md-6">
-                            <a class="title" href="">${key.tour.fromCity} &rarr; ${key.tour.toCity}</a>
-                            <div><a class="htl" href="">${key.hotel.name}</a></div>
-                            <button toggled="false"
-                                    class="btn-toggle">Main features <span class="caret"></span></button>
-                            <ul style="list-style: outside" class="feats collapse" h="0">
-                                <li>key.hotel.description</li>
-                            </ul>
+
+                            <a class="title" href="">${prop.key.tour.fromCity} &rarr; ${prop.key.tour.toCity}</a>
+                            <div><a class="htl" href="">${prop.key.hotel.name}</a></div>
+                            <#if prop.key.hotel.description?has_content>
+                                <button toggled="false"
+                                        class="btn-toggle">Main features <span class="caret"></span></button>
+                                <ul style="list-style: outside" class="feats collapse" h="0">
+                                    <li>${prop.key.hotel.description}</li>
+                                </ul>
+                            </#if>
+
                         </div>
+
                         <div class="col-lg-3 col-md-3 inf">
                             <div class="ratio">
                                 9.3 &#9733;
                             </div>
-                            <input class="btn htl price bot" value="$700" type="button" >
+                            <input class="btn htl price bot" value="$700" type="button">
                         </div>
                     </li>
-                        <ul class="sublist collapse" id="sl1">
-                            <#list value as concTour>
-                                <li class="well out-li row">
-                                    <div class="col-lg-3">
-                                        <a href="" class="title">
-                                            <h3>${key.tour.fromCity} &rarr; ${key.tour.toCity}</h3>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <ul class="feats sub">
-                                            <il>+ Nutrition type: ${concTour.nutritionType}</il>
-                                            <li>+ Airline: ${concTour.airline}</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <input class="htl price btn" value="${concTour.price}" type="button">
-                                    </div>
-                                </li>
-
-                    </#list>
+                    <#if prop.value?has_content>
+                            <ul class="sublist collapse" id="sl1">
+                                <#list prop.value as concTour>
+                                    <li class="well out-li row">
+                                        <div class="col-lg-3">
+                                            <a href="" class="title">
+                                                <h3>${prop.key.tour.fromCity} &rarr; ${prop.key.tour.toCity}</h3>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <ul class="feats sub">
+                                                <il>+ Nutrition type: ${concTour.nutritionType}</il>
+                                                <li>+ Airline: ${concTour.airline}</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <input class="htl price btn" value="${concTour.price}" type="button">
+                                        </div>
+                                    </li>
+                                </#list>
+                            </ul>
+                        </#if>
                 </#list>
-                </ul>
-            </div>
+            </#if>
+            </ul>
+        </div>
     </div>
 </div>
 

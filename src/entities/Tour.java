@@ -6,15 +6,34 @@ public class Tour {
     private int hotelId;
     private boolean specialMark;
     private String description;
+
+    public String getToCity() {
+        return toCity;
+    }
+
+    public void setToCity(String toCity) {
+        this.toCity = toCity;
+    }
+
+    public String getFromCity() {
+        return fromCity;
+    }
+
+    public void setFromCity(String fromCity) {
+        this.fromCity = fromCity;
+    }
+
     private String toCity;
     private String fromCity;
 
-    public Tour(int id, String name, int hotelId, boolean specialMark, String description, String toCity, String fromCity) {
+    public Tour(int id, String name, int hotelId, boolean specialMark, String description, String fromCity, String toCity ) {
         this.id = id;
         this.name = name;
         this.hotelId = hotelId;
         this.specialMark = specialMark;
         this.description = description;
+        this.toCity = toCity;
+        this.fromCity = fromCity;
     }
 
     public int getId() {
