@@ -3,6 +3,22 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+    <servlet>
+        <servlet-name>tourItemServlet</servlet-name>
+        <servlet-class>servlets.TourItemServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>tourItemServlet</servlet-name>
+        <url-pattern>/tour</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>hotDealsServlet</servlet-name>
+        <url-pattern>/deals</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>hotDealsServlet</servlet-name>
+        <servlet-class>servlets.HotDealsServlet</servlet-class>
+    </servlet>
 <servlet>
 <servlet-name>MainPageServlet</servlet-name>
 <servlet-class>servlets.MainPageServlet</servlet-class>
@@ -11,6 +27,14 @@
 <servlet-name>MainPageServlet</servlet-name>
 <url-pattern>/main</url-pattern>
 </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>hotDealsAJaxServlet</servlet-name>
+        <url-pattern>/deals_ajax</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>hotDealsAJaxServlet</servlet-name>
+        <servlet-class>servlets.HotDealsAjaxServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
 <servlet-name>login</servlet-name>
@@ -37,5 +61,14 @@
         <servlet-name>profile</servlet-name>
         <url-pattern>/profile</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>FeedBackServlet</servlet-name>
+        <url-pattern>/feedbacks</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FeedBackServlet</servlet-name>
+        <servlet-class>servlets.FeedBacksServlet</servlet-class>
+    </servlet>
 
 </web-app>

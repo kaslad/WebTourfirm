@@ -14,15 +14,23 @@ import java.util.List;
 public class HotelDao implements HotelDaoInterface {
     @Override
     public Hotel getHotelById(int id) {
-        String request = ("SELECT * FROM hotel where id = ?");
-        try{
-            PreparedStatement st = DbSingleton.getConnection().prepareStatement(request);
-            ResultSet resultSet = st.executeQuery();
-            return new Hotel(resultSet.getInt("id"), resultSet.getString("name"),
-                    resultSet.getInt("count_star"),
-                    resultSet.getString("description"));
-        } catch (SQLException e) {
-            e.printStackTrace();
+        System.out.println("hotel id " + id);
+        if (DbSingleton.getConnection()!= null) {
+            String request = "SELECT * FROM hotel where id = ?";
+            try {
+                PreparedStatement st = DbSingleton.getConnection().prepareStatement(request);
+                st.setInt(1,id);
+                ResultSet resultSet = st.executeQuery();
+                while (resultSet.next()) {
+                    System.out.println(resultSet.getString("name"));
+                    return new Hotel(resultSet.getInt("id"), resultSet.getString("name"),
+                            resultSet.getInt("count_star"),
+                            resultSet.getString("description"));
+                }
+            } catch (SQLException sql) {
+                sql.printStackTrace();
+            }
+
         }
         return null;
     }
@@ -49,6 +57,7 @@ public class HotelDao implements HotelDaoInterface {
         String request = ("SELECT * FROM hotel where name = ?");
         try{
             PreparedStatement st = DbSingleton.getConnection().prepareStatement(request);
+            st.setString(1,name);
             ResultSet resultSet = st.executeQuery();
             return new Hotel(resultSet.getInt("id"), resultSet.getString("name"),
                     resultSet.getInt("count_star"),

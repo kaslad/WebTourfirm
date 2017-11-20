@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.util.HashMap;
 
 
@@ -24,4 +25,19 @@ ConfigHelper {
         }
         response.setCharacterEncoding("UTF-8");
     }
+    public static String render(HttpServletRequest request, String templateName, HashMap root) throws ServletException, IOException {
+        Configuration cfg = ConfigSingleton.getConfig(request.getServletContext());
+        Template tmpl = cfg.getTemplate(templateName);
+        StringWriter stringWriter;
+        stringWriter = new StringWriter();
+        try {
+            tmpl.process(root, stringWriter);
+        } catch (TemplateException e) {
+            e.printStackTrace();
+        }
+        return stringWriter.toString();
+    }
+
+
+
 }

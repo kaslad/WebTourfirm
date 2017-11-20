@@ -30,8 +30,8 @@
     </database>
     <schema id="10" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2017-11-18.19:44:25.066</IntrospectionTimestamp>
-      <IntrospectionStateNumber>1188</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2017-11-20.23:33:45.058</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1261</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -104,7 +104,7 @@
     </table>
     <table id="25" parent="10" name="concrete_tour">
       <ObjectId>16778</ObjectId>
-      <StateNumber>1188</StateNumber>
+      <StateNumber>1202</StateNumber>
     </table>
     <table id="26" parent="10" name="feedback">
       <ObjectId>16750</ObjectId>
@@ -120,11 +120,11 @@
     </table>
     <table id="29" parent="10" name="reservation">
       <ObjectId>16790</ObjectId>
-      <StateNumber>953</StateNumber>
+      <StateNumber>1202</StateNumber>
     </table>
     <table id="30" parent="10" name="reservation_info">
       <ObjectId>16826</ObjectId>
-      <StateNumber>953</StateNumber>
+      <StateNumber>1202</StateNumber>
     </table>
     <table id="31" parent="10" name="site_information">
       <ObjectId>16767</ObjectId>
@@ -132,15 +132,15 @@
     </table>
     <table id="32" parent="10" name="tour">
       <ObjectId>16798</ObjectId>
-      <StateNumber>1187</StateNumber>
+      <StateNumber>1202</StateNumber>
     </table>
     <table id="33" parent="10" name="tour_photo">
       <ObjectId>16759</ObjectId>
-      <StateNumber>953</StateNumber>
+      <StateNumber>1202</StateNumber>
     </table>
     <table id="34" parent="10" name="tour_user">
       <ObjectId>16737</ObjectId>
-      <StateNumber>953</StateNumber>
+      <StateNumber>1202</StateNumber>
     </table>
     <table id="35" parent="10" name="user">
       <ObjectId>16834</ObjectId>
@@ -275,23 +275,18 @@
       <NotNull>1</NotNull>
       <StateNumber>966</StateNumber>
     </column>
-    <column id="56" parent="26" name="hotel_id">
-      <Position>6</Position>
-      <DataType>integer|0</DataType>
-      <StateNumber>953</StateNumber>
-    </column>
-    <index id="57" parent="26" name="feedback_pkey">
+    <index id="56" parent="26" name="feedback_pkey">
       <ObjectId>16757</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="58" parent="26" name="feedback_pkey">
+    <key id="57" parent="26" name="feedback_pkey">
       <ObjectId>16758</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>feedback_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="59" parent="26" name="feedback_user_id_fkey">
+    <foreign-key id="58" parent="26" name="feedback_user_id_fkey">
       <ObjectId>16860</ObjectId>
       <ColNames>user_id</ColNames>
       <RefTableId>16834</RefTableId>
@@ -300,16 +295,7 @@
       <RefKeyName>user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="60" parent="26" name="feedback_hotel_id_fkey">
-      <ObjectId>16865</ObjectId>
-      <ColNames>hotel_id</ColNames>
-      <RefTableId>16817</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>hotel</RefTableName>
-      <RefKeyName>hotel_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="61" parent="27" name="id">
+    <column id="59" parent="27" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
@@ -317,48 +303,48 @@
       <SequenceName>hotel_id_seq</SequenceName>
       <DefaultExpression>nextval(&apos;hotel_id_seq&apos;::regclass)</DefaultExpression>
     </column>
-    <column id="62" parent="27" name="name">
+    <column id="60" parent="27" name="name">
       <Position>2</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="63" parent="27" name="count_star">
+    <column id="61" parent="27" name="count_star">
       <Position>3</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="64" parent="27" name="description">
+    <column id="62" parent="27" name="description">
       <Position>4</Position>
       <DataType>text|0</DataType>
       <StateNumber>953</StateNumber>
     </column>
-    <index id="65" parent="27" name="hotel_pkey">
+    <index id="63" parent="27" name="hotel_pkey">
       <ObjectId>16824</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="66" parent="27" name="hotel_pkey">
+    <key id="64" parent="27" name="hotel_pkey">
       <ObjectId>16825</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>hotel_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="67" parent="28" name="hotel_id">
+    <column id="65" parent="28" name="hotel_id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="68" parent="28" name="img_url">
+    <column id="66" parent="28" name="img_url">
       <Position>2</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
       <DefaultExpression>&apos;NULL&apos;::text</DefaultExpression>
     </column>
-    <foreign-key id="69" parent="28" name="hotel_photo_hotel_id_fkey">
+    <foreign-key id="67" parent="28" name="hotel_photo_hotel_id_fkey">
       <ObjectId>16895</ObjectId>
       <ColNames>hotel_id</ColNames>
       <RefTableId>16817</RefTableId>
@@ -367,7 +353,7 @@
       <RefKeyName>hotel_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="70" parent="29" name="id">
+    <column id="68" parent="29" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
@@ -375,36 +361,36 @@
       <SequenceName>reservation_id_seq</SequenceName>
       <DefaultExpression>nextval(&apos;reservation_id_seq&apos;::regclass)</DefaultExpression>
     </column>
-    <column id="71" parent="29" name="concrete_tour_id">
+    <column id="69" parent="29" name="concrete_tour_id">
       <Position>2</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="72" parent="29" name="user_id">
+    <column id="70" parent="29" name="user_id">
       <Position>3</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="73" parent="29" name="count">
+    <column id="71" parent="29" name="count">
       <Position>4</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <index id="74" parent="29" name="reservation_pkey">
+    <index id="72" parent="29" name="reservation_pkey">
       <ObjectId>16794</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="75" parent="29" name="reservation_pkey">
+    <key id="73" parent="29" name="reservation_pkey">
       <ObjectId>16795</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>reservation_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="76" parent="29" name="reservation_concrete_tour_id_fkey">
+    <foreign-key id="74" parent="29" name="reservation_concrete_tour_id_fkey">
       <ObjectId>16880</ObjectId>
       <ColNames>concrete_tour_id</ColNames>
       <RefTableId>16778</RefTableId>
@@ -413,7 +399,7 @@
       <RefKeyName>concrete_tour_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="77" parent="29" name="reservation_user_id_fkey">
+    <foreign-key id="75" parent="29" name="reservation_user_id_fkey">
       <ObjectId>16885</ObjectId>
       <ColNames>user_id</ColNames>
       <RefTableId>16834</RefTableId>
@@ -422,49 +408,49 @@
       <RefKeyName>user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="78" parent="30" name="reservation_id">
+    <column id="76" parent="30" name="reservation_id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="79" parent="30" name="name">
+    <column id="77" parent="30" name="name">
       <Position>2</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="80" parent="30" name="last_name">
+    <column id="78" parent="30" name="last_name">
       <Position>3</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="81" parent="30" name="father_name">
+    <column id="79" parent="30" name="father_name">
       <Position>4</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="82" parent="30" name="passport_series">
+    <column id="80" parent="30" name="passport_series">
       <Position>5</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="83" parent="30" name="passport_number">
+    <column id="81" parent="30" name="passport_number">
       <Position>6</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="84" parent="30" name="passport_who_gave">
+    <column id="82" parent="30" name="passport_who_gave">
       <Position>7</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <foreign-key id="85" parent="30" name="reservation_info_reservation_id_fkey">
+    <foreign-key id="83" parent="30" name="reservation_info_reservation_id_fkey">
       <ObjectId>16900</ObjectId>
       <ColNames>reservation_id</ColNames>
       <RefTableId>16790</RefTableId>
@@ -473,7 +459,7 @@
       <RefKeyName>reservation_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="86" parent="31" name="id">
+    <column id="84" parent="31" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
@@ -481,29 +467,29 @@
       <SequenceName>site_information_id_seq</SequenceName>
       <DefaultExpression>nextval(&apos;site_information_id_seq&apos;::regclass)</DefaultExpression>
     </column>
-    <column id="87" parent="31" name="name_object">
+    <column id="85" parent="31" name="name_object">
       <Position>2</Position>
       <DataType>text|0</DataType>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="88" parent="31" name="context">
+    <column id="86" parent="31" name="context">
       <Position>3</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <index id="89" parent="31" name="site_information_pkey">
+    <index id="87" parent="31" name="site_information_pkey">
       <ObjectId>16774</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="90" parent="31" name="site_information_pkey">
+    <key id="88" parent="31" name="site_information_pkey">
       <ObjectId>16775</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>site_information_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="91" parent="32" name="id">
+    <column id="89" parent="32" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
@@ -511,52 +497,52 @@
       <SequenceName>tour_id_seq</SequenceName>
       <DefaultExpression>nextval(&apos;tour_id_seq&apos;::regclass)</DefaultExpression>
     </column>
-    <column id="92" parent="32" name="name">
+    <column id="90" parent="32" name="name">
       <Position>2</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
       <DefaultExpression>&apos;NULL&apos;::text</DefaultExpression>
     </column>
-    <column id="93" parent="32" name="hotel_id">
+    <column id="91" parent="32" name="hotel_id">
       <Position>3</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="94" parent="32" name="special_mark">
+    <column id="92" parent="32" name="special_mark">
       <Position>4</Position>
       <DataType>boolean|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="95" parent="32" name="description">
+    <column id="93" parent="32" name="description">
       <Position>5</Position>
       <DataType>text|0</DataType>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="96" parent="32" name="from_city">
+    <column id="94" parent="32" name="from_city">
       <Position>6</Position>
       <DataType>text|0</DataType>
       <StateNumber>1186</StateNumber>
     </column>
-    <column id="97" parent="32" name="to_city">
+    <column id="95" parent="32" name="to_city">
       <Position>7</Position>
       <DataType>text|0</DataType>
       <StateNumber>1187</StateNumber>
     </column>
-    <index id="98" parent="32" name="tour_pkey">
+    <index id="96" parent="32" name="tour_pkey">
       <ObjectId>16806</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="99" parent="32" name="tour_pkey">
+    <key id="97" parent="32" name="tour_pkey">
       <ObjectId>16807</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>tour_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="100" parent="32" name="tour_hotel_id_fkey">
+    <foreign-key id="98" parent="32" name="tour_hotel_id_fkey">
       <ObjectId>16890</ObjectId>
       <ColNames>hotel_id</ColNames>
       <RefTableId>16817</RefTableId>
@@ -565,19 +551,19 @@
       <RefKeyName>hotel_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="101" parent="33" name="tour_id">
+    <column id="99" parent="33" name="tour_id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="102" parent="33" name="img_url">
+    <column id="100" parent="33" name="img_url">
       <Position>2</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <foreign-key id="103" parent="33" name="tour_photo_tour_id_fkey">
+    <foreign-key id="101" parent="33" name="tour_photo_tour_id_fkey">
       <ObjectId>16870</ObjectId>
       <ColNames>tour_id</ColNames>
       <RefTableId>16798</RefTableId>
@@ -586,19 +572,19 @@
       <RefKeyName>tour_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="104" parent="34" name="concrete_tour_id">
+    <column id="102" parent="34" name="concrete_tour_id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="105" parent="34" name="user_id">
+    <column id="103" parent="34" name="user_id">
       <Position>2</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>953</StateNumber>
     </column>
-    <foreign-key id="106" parent="34" name="tour_user_concrete_tour_id_fkey">
+    <foreign-key id="104" parent="34" name="tour_user_concrete_tour_id_fkey">
       <ObjectId>16845</ObjectId>
       <ColNames>concrete_tour_id</ColNames>
       <RefTableId>16778</RefTableId>
@@ -607,7 +593,7 @@
       <RefKeyName>concrete_tour_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="107" parent="34" name="tour_user_user_id_fkey">
+    <foreign-key id="105" parent="34" name="tour_user_user_id_fkey">
       <ObjectId>16850</ObjectId>
       <ColNames>user_id</ColNames>
       <RefTableId>16834</RefTableId>
@@ -616,7 +602,7 @@
       <RefKeyName>user_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="108" parent="35" name="id">
+    <column id="106" parent="35" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
@@ -624,82 +610,82 @@
       <SequenceName>user_id_seq</SequenceName>
       <DefaultExpression>nextval(&apos;user_id_seq&apos;::regclass)</DefaultExpression>
     </column>
-    <column id="109" parent="35" name="login">
+    <column id="107" parent="35" name="login">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>956</StateNumber>
       <DefaultExpression>NULL::character varying</DefaultExpression>
     </column>
-    <column id="110" parent="35" name="password">
+    <column id="108" parent="35" name="password">
       <Position>3</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>958</StateNumber>
       <DefaultExpression>NULL::character varying</DefaultExpression>
     </column>
-    <column id="111" parent="35" name="cookie">
+    <column id="109" parent="35" name="cookie">
       <Position>4</Position>
       <DataType>text|0</DataType>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="112" parent="35" name="name">
+    <column id="110" parent="35" name="name">
       <Position>5</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="113" parent="35" name="last_name">
+    <column id="111" parent="35" name="last_name">
       <Position>6</Position>
       <DataType>text|0</DataType>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="114" parent="35" name="father_name">
+    <column id="112" parent="35" name="father_name">
       <Position>7</Position>
       <DataType>text|0</DataType>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="115" parent="35" name="img_url">
+    <column id="113" parent="35" name="img_url">
       <Position>8</Position>
       <DataType>text|0</DataType>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="116" parent="35" name="passport_series">
+    <column id="114" parent="35" name="passport_series">
       <Position>9</Position>
       <DataType>text|0</DataType>
       <StateNumber>986</StateNumber>
     </column>
-    <column id="117" parent="35" name="passport_number">
+    <column id="115" parent="35" name="passport_number">
       <Position>10</Position>
       <DataType>text|0</DataType>
       <StateNumber>987</StateNumber>
     </column>
-    <column id="118" parent="35" name="passport_who_gave">
+    <column id="116" parent="35" name="passport_who_gave">
       <Position>11</Position>
       <DataType>text|0</DataType>
       <StateNumber>953</StateNumber>
     </column>
-    <column id="119" parent="35" name="sex">
+    <column id="117" parent="35" name="sex">
       <Position>12</Position>
       <DataType>text|0</DataType>
       <StateNumber>957</StateNumber>
     </column>
-    <column id="120" parent="35" name="phone_number">
+    <column id="118" parent="35" name="phone_number">
       <Position>13</Position>
       <DataType>text|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>974</StateNumber>
     </column>
-    <column id="121" parent="35" name="email">
+    <column id="119" parent="35" name="email">
       <Position>14</Position>
       <DataType>text|0</DataType>
       <StateNumber>968</StateNumber>
     </column>
-    <index id="122" parent="35" name="user_pkey">
+    <index id="120" parent="35" name="user_pkey">
       <ObjectId>16843</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="123" parent="35" name="user_pkey">
+    <key id="121" parent="35" name="user_pkey">
       <ObjectId>16844</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>user_pkey</UnderlyingIndexName>

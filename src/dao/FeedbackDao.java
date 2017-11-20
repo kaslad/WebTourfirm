@@ -17,20 +17,33 @@ public class FeedbackDao implements FeedbackDaoInterface {
     }
 
     @Override
-    public List getAllFeedbacks() {
+    public List<Feedback> getAllFeedbacks() {
+        String request = "SELECT * FROM feedback ";
+        try {
+            PreparedStatement st = DbSingleton.getConnection().prepareStatement(request);
+            ResultSet resultSet = st.executeQuery();
+            List<Feedback> a = new ArrayList<>();
+            while (resultSet.next()) a.add(new Feedback(resultSet.getString("feedback"), resultSet.getInt("rate"),
+                    resultSet.getString("date"), resultSet.getInt("id"),
+                    resultSet.getInt("user_id")));
+            return a;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
+
     }
 
     @Override
-    public List getAllFeedBacksByUserId(int id) {
+    public List<Feedback> getAllFeedBacksByUserId(int id) {
         String request = ("SELECT * FROM feedback where user_id = ?");
         try {
             PreparedStatement st = DbSingleton.getConnection().prepareStatement(request);
             ResultSet resultSet = st.executeQuery();
             List<Feedback> a = new ArrayList<>();
             while (resultSet.next()) a.add(new Feedback(resultSet.getString("feedback"), resultSet.getInt("rate"),
-                    resultSet.getLong("date"), resultSet.getInt("id"),
-                    resultSet.getInt("user_id"), resultSet.getInt("hotel_id")));
+                    resultSet.getString("date"), resultSet.getInt("id"),
+                    resultSet.getInt("user_id")));
             return a;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -41,7 +54,7 @@ public class FeedbackDao implements FeedbackDaoInterface {
     @Override
     public boolean addFeedBack(Feedback feedback) {
         if (DbSingleton.getConnection() != null && feedback != null) {
-            String request = "INSERT INTO feedback (id, feedback, user_id, rate, date, hotel_id) VALUES (?,?,?,?,?,?)";
+            String request = "INSERT INTO feedback (id, feedback, user_id, rate, date) VALUES (?,?,?,?,?)";
 
             try {
                 PreparedStatement st = DbSingleton.getConnection().prepareStatement(request);
@@ -49,8 +62,8 @@ public class FeedbackDao implements FeedbackDaoInterface {
                 st.setString(2, feedback.getFeedback());
                 st.setInt(3, feedback.getUserId());
                 st.setInt(4, feedback.getRate());
-                st.setLong(5, feedback.getDate().getTimeInMillis());
-                st.setInt(6, feedback.getHotelId());
+                st.setString(5, feedback.getDate());
+
 
                 st.executeUpdate();
                 return true;

@@ -1,24 +1,16 @@
 package entities;
 
-import java.sql.Timestamp;
 import java.util.Calendar;
 
 public class Feedback {
     private String feedback;
     private int rate;
-    private Calendar date;
+    private String date;
     private int id;
     private int userId;
-    private int hotelId;
 
-    public Feedback(String feedback, int rate, long date, int id, int userId, int hotelId) {
-        this.feedback = feedback;
-        this.rate = rate;
-        this.date = Calendar.getInstance();
-        this.date.setTimeInMillis(date);
-        this.id = id;
-        this.userId = userId;
-        this.hotelId = hotelId;
+
+    public Feedback(String feedback, int rate, String date, int id, int user_id) {
     }
 
     public String getFeedback() {
@@ -37,11 +29,11 @@ public class Feedback {
         this.rate = rate;
     }
 
-    public Calendar getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Calendar date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -61,11 +53,6 @@ public class Feedback {
         this.userId = userId;
     }
 
-    public int getHotelId() {
-        return hotelId;
-    }
 
-    public void setHotelId(int hotelId) {
-        this.hotelId = hotelId;
-    }
+
 }

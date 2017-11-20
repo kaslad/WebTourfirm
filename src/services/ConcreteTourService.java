@@ -21,7 +21,14 @@ public class ConcreteTourService implements ConcereteTourServiceInterface {
 
     @Override
     public ConcreteTour getConcreteTourById(int id) {
-        return null;
+        ConcreteTour concreteTour = concreteTourDao.getConcreteTourById(id);
+        err = null;
+
+        if(concreteTour == null){
+            err = new MyError("", "No concrete Tours by id = " + id);
+            return null;
+        }
+        return concreteTour;
     }
 
     @Override
@@ -36,7 +43,36 @@ public class ConcreteTourService implements ConcereteTourServiceInterface {
         }
         return list;
     }
+    public Map<TourHotel, List<ConcreteTour>> getAllSpecialConcreteToursByCity(String fromCity, String toCity) {
 
+        Map<TourHotel, List<ConcreteTour>> map;
+        System.out.println("ConcreteTourDaoInt");
+
+        map =  concreteTourDao.getAllSpecialConcreteToursByCity(fromCity, toCity);
+
+        err = null;
+
+        if(map == null){
+            err = new MyError("", "No tours and its Concrete Tours by this request = " );
+            return null;
+        }
+        return map;
+    }
+    public Map<TourHotel, List<ConcreteTour>> getAllConcreteToursByCity(String fromCity, String toCity) {
+
+        Map<TourHotel, List<ConcreteTour>> map;
+        System.out.println("ConcreteTourDaoInt");
+
+        map =  concreteTourDao.getAllConcreteToursByCity(fromCity, toCity);
+
+        err = null;
+
+        if(map == null){
+            err = new MyError("", "No tours and its Concrete Tours by this request = " );
+            return null;
+        }
+        return map;
+    }
     @Override
     public Map<TourHotel, List<ConcreteTour>> getTourAndItsConcreteTours(String fromCity, String toCity, String fromDate, String toDate, int fromPrice, int toPrice) {
 

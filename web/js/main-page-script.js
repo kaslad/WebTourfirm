@@ -104,15 +104,14 @@ $(document).ready(function() {
                 values:[0, 300],
                 slide: function(event, el) {
                     $( "#amount" ).html( "$" + el.values[ 0 ] + " - $" + el.values[ 1 ] );
-                    $("#slider").find("input").val(el.values[0] + "-" + el.values[1]);
+                    $("#slider").attr("from", el.values[0]);
+                    $("#slider").attr("to", el.values[1]);
                 }
         });
         $( "#amount" ).html( "$" + $( "#slider").slider("values",0) + " - $" + $( "#slider" ).slider( "values", 1 ) );
         });
-        $("#slider").find("input").val("0-300");
-
-
-    $("[data-toggle='tooltip']").tooltip();
+        
+        $("[data-toggle='tooltip']").tooltip();
         
         var par = document.getElementsByClassName("out-li");
         if (window.outerWidth >= 768) {
@@ -149,4 +148,24 @@ $(document).ready(function() {
         starSetted = $(".star").index(e.target);
         $("#rate-field").attr("rate", starSetted);
     })
+    
+    $("#c-off").on("click", function() {
+        var x = $("#counter").html()
+        if (x <= 0) {
+            $(this).attr("disabled")
+            return false;
+        } else {
+            $(this).removeAttr("disabled")
+        }
+        $("#counter").html(parseInt(x) - 1);
+        return false;
+    })
+    
+    $("#c-on").on("click", function() {
+        var x = $("#counter").html()
+        $("#counter").html(parseInt(x) + 1);
+        return false;
+    })
+    
+    $("2312").after
 });

@@ -4,8 +4,11 @@ import freemarker.template.Configuration;
 import freemarker.template.TemplateExceptionHandler;
 
 import javax.servlet.ServletContext;
+import java.io.File;
+import java.io.IOException;
 
 public class ConfigSingleton {
+    public static final String ROOT_OF_PROJECT = "/Users/Vladislav/IdeaProjects/TourCompany";
     private static Configuration cfg = null;
     public static Configuration getConfig(ServletContext sc) {
         if (cfg == null){
@@ -22,4 +25,6 @@ public class ConfigSingleton {
         }
         return cfg;
     }
+
+
 }

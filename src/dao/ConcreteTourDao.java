@@ -26,7 +26,27 @@ public class ConcreteTourDao implements ConcreteTourDaoInterface {
 
     @Override
     public ConcreteTour getConcreteTourById(int id) {
+        if (DbSingleton.getConnection()!= null) {
+            String request = "SELECT * FROM concrete_tour WHERE id= ? ";
+            try {
+                PreparedStatement st = DbSingleton.getConnection().prepareStatement(request);
+                st.setInt(1,id);
+                ResultSet resultSet = st.executeQuery();
+                while (resultSet.next()) {
+                   return new ConcreteTour(resultSet.getInt("id"),
+                            resultSet.getInt("tour_id"),resultSet.getString("date"),
+                            resultSet.getString("date_end"),
+                            resultSet.getString("airline"), resultSet.getString("nutrition_type"),
+                            resultSet.getInt("price")
+                    );
+                }
+            } catch (SQLException sql) {
+                sql.printStackTrace();
+            }
+            return null;
+        }
         return null;
+
     }
     private List<ConcreteTour> getAllConcreteTours(String request){
         try {
@@ -46,6 +66,8 @@ public class ConcreteTourDao implements ConcreteTourDaoInterface {
         }
         return null;
     }
+
+
     public Map<TourHotel,List<ConcreteTour>> getAllConcreteToursByTourParams(String fromCity, String toCity, String fromDate, String toDate, int fromPrice, int toPrice){
         System.out.println("here");
         String request = "select t.hotel_id, t.description, t.from_city, t.to_city,t.special_mark, t.name as tour_name, h.name as hotel_name, h.count_star, h.description, c.id, c.tour_id, c.date, c.date_end,\n" +
@@ -111,6 +133,110 @@ public class ConcreteTourDao implements ConcreteTourDaoInterface {
         return null;
 
     }
+
+    public Map<TourHotel,List<ConcreteTour>> getAllConcreteToursByCity(String fromCity, String toCity){
+        System.out.println("here");
+        String request = "select t.hotel_id, t.description, t.from_city, t.to_city,t.special_mark, t.name as tour_name, h.name as hotel_name, h.count_star, h.description, c.id, c.tour_id, c.date, c.date_end,\n" +
+                "c.airline, c.nutrition_type, c.price \n" +
+                " from tour as t   join concrete_tour as c on c.tour_id = t.id JOIN hotel as h on h.id = t.hotel_id\n" +
+                " where t.from_city = ? and t.to_city = ? " ;
+
+        System.out.println("Concr tour Dao");
+        System.out.println(fromCity);
+        System.out.println(toCity);
+
+
+        try {
+            PreparedStatement st = DbSingleton.getConnection().prepareStatement(request);
+            st.setString(1, fromCity);
+            st.setString(2, toCity);
+
+            ResultSet resultSet = st.executeQuery();
+            Map<TourHotel, List<ConcreteTour>> map = new HashMap<>();
+            while (resultSet.next()) {
+
+                Integer id = resultSet.getInt("hotel_id");
+                ConcreteTour concreteTour = new ConcreteTour(resultSet.getInt("id"),
+                        resultSet.getInt("tour_id"), resultSet.getString("date"),
+                        resultSet.getString("date_end"),
+                        resultSet.getString("airline"), resultSet.getString("nutrition_type"),
+                        resultSet.getInt("price"));
+                TourHotel tourHotel = new TourHotel(new Tour(resultSet.getInt("tour_id"), resultSet.getString("tour_name"),
+                        resultSet.getInt("hotel_id"), resultSet.getBoolean("special_mark"),
+                        resultSet.getString("description"), resultSet.getString("from_city").toLowerCase(),
+                        resultSet.getString("to_city").toLowerCase()),new Hotel(resultSet.getInt("hotel_id"), resultSet.getString("hotel_name"), resultSet.getInt("count_star"), resultSet.getString("description")));
+                if (map.containsKey(tourHotel)) {
+                    map.get(tourHotel).add(concreteTour);
+                } else {
+
+                    List<ConcreteTour> list = new ArrayList<>();
+                    list.add(concreteTour);
+
+                    map.put(tourHotel, list);
+                }
+            }
+            System.out.println("map size" + map.size());
+            return map;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("map size = 0");
+        return null;
+
+    }
+    public Map<TourHotel,List<ConcreteTour>> getAllSpecialConcreteToursByCity(String fromCity, String toCity){
+        System.out.println("here");
+        String request = "select t.hotel_id, t.description, t.from_city, t.to_city,t.special_mark, t.name as tour_name, h.name as hotel_name, h.count_star, h.description, c.id, c.tour_id, c.date, c.date_end,\n" +
+                "c.airline, c.nutrition_type, c.price \n" +
+                " from tour as t   join concrete_tour as c on c.tour_id = t.id JOIN hotel as h on h.id = t.hotel_id\n" +
+                " where t.from_city = ? and t.to_city = ? and t.special_mark=TRUE" ;
+
+        System.out.println("Concr tour Dao");
+        System.out.println(fromCity);
+        System.out.println(toCity);
+
+
+        try {
+            PreparedStatement st = DbSingleton.getConnection().prepareStatement(request);
+            st.setString(1, fromCity);
+            st.setString(2, toCity);
+
+            ResultSet resultSet = st.executeQuery();
+            Map<TourHotel, List<ConcreteTour>> map = new HashMap<>();
+            while (resultSet.next()) {
+
+                Integer id = resultSet.getInt("hotel_id");
+                ConcreteTour concreteTour = new ConcreteTour(resultSet.getInt("id"),
+                        resultSet.getInt("tour_id"), resultSet.getString("date"),
+                        resultSet.getString("date_end"),
+                        resultSet.getString("airline"), resultSet.getString("nutrition_type"),
+                        resultSet.getInt("price"));
+                TourHotel tourHotel = new TourHotel(new Tour(resultSet.getInt("tour_id"), resultSet.getString("tour_name"),
+                        resultSet.getInt("hotel_id"), resultSet.getBoolean("special_mark"),
+                        resultSet.getString("description"), resultSet.getString("from_city").toLowerCase(),
+                        resultSet.getString("to_city").toLowerCase()),new Hotel(resultSet.getInt("hotel_id"), resultSet.getString("hotel_name"), resultSet.getInt("count_star"), resultSet.getString("description")));
+                if (map.containsKey(tourHotel)) {
+                    map.get(tourHotel).add(concreteTour);
+                } else {
+
+                    List<ConcreteTour> list = new ArrayList<>();
+                    list.add(concreteTour);
+
+                    map.put(tourHotel, list);
+                }
+            }
+            System.out.println("map size" + map.size());
+            return map;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("map size = 0");
+        return null;
+
+    }
+
 
 
 

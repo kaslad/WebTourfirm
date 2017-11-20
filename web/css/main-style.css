@@ -535,11 +535,11 @@ input[type="button"]:focus {
     margin-top: 6%;
 }
 
-.red {
+.red, .passed {
     color: red;
 }
 
-.blue {
+.blue, .incoming {
     color: deepskyblue;
 }
 
@@ -567,4 +567,26 @@ input[type="button"]:focus {
 .pursh-form {
     width: 50%;
     margin: auto;
+}
+
+#quant div {
+    width: 50%;
+    display: block;
+    margin: auto;
+    
+}
+
+.btn-transparent {
+    background-color: transparent;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: auto;
+    font-size: 20px;
+    height: auto;
+}
+
+#counter {
+    width: 80px;
+    height: auto;
 }

@@ -43,6 +43,7 @@ public class HotelService implements HotelServiceInterface{
     @Override
     public Hotel getHotelById(int id) {
         Hotel hotel = hotelDao.getHotelById(id);
+        System.out.println("name = " + hotel.getName());
         err = null;
         if(hotel == null){
             err = new MyError("", "htel_not_found");

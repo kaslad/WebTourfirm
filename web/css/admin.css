@@ -75,8 +75,24 @@ table td {
     font-size: 20px;
 }
 
-.nav li {
+.navbar-nav {
     position: absolute;
-    right: 5%;
-    top: 0;
+    right: 10px;
+}
+
+.nav li {
+}
+
+.editor {
+    width: 50%;
+}
+
+.editor input[type='text']{
+    font-size: 20px;
+    padding: 20px;
+}
+
+.lbl {
+    font-size: 18px;
+    
 }

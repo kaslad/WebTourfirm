@@ -42,10 +42,13 @@ public class ResultServlet extends HttpServlet {
 
 
         ConcreteTourService concreteTourService = new ConcreteTourService();
-        Map<TourHotel, List<ConcreteTour>> mapTourAndItsConcTours = null;
+        Map<TourHotel, List<ConcreteTour>> mapTourAndItsConcTours = new HashMap<>();
+
         List<Pair<TourHotel, List<ConcreteTour>>> list = new ArrayList<>();
 
-        if(request.getParameter("from_date") != null) {
+
+        if(request.getParameter("from_date") != "" && request.getParameter("to_date") != null
+                && request.getParameter("from_city") != null && request.getParameter("to_city") != null) {
             String fromCity = request.getParameter("from_city").toLowerCase();
             String toCity = request.getParameter("to_city").toLowerCase();
             String toDate = getTimeStampDate(request.getParameter("to_date"));
@@ -59,7 +62,7 @@ public class ResultServlet extends HttpServlet {
             int fromPrice = Integer.parseInt(price[0]);
             int toPrice = Integer.parseInt(price[1]);
             mapTourAndItsConcTours = concreteTourService.getTourAndItsConcreteTours(fromCity, toCity, fromDate, toDate, fromPrice, toPrice);
-            List<TourHotel> tourHotelSet = new ArrayList<>(mapTourAndItsConcTours.keySet());
+
             /*for(int i = 0; i < tourHotelSet.size(); i++){
                 System.out.print(tourHotelSet.get(i).getTour().getId());
                 System.out.println(" hotel_id = " + tourHotelSet.get(i).getHotel().getId());
@@ -70,9 +73,14 @@ public class ResultServlet extends HttpServlet {
                 }
                 System.out.println();
             }*/
-            for(Map.Entry<TourHotel, List<ConcreteTour>> entry: mapTourAndItsConcTours.entrySet()){
-                list.add(new Pair(entry.getKey(), entry.getValue()));
-            }
+
+                try {
+                    for (Map.Entry<TourHotel, List<ConcreteTour>> entry : mapTourAndItsConcTours.entrySet()) {
+                        list.add(new Pair(entry.getKey(), entry.getValue()));
+                    }
+                } catch(NullPointerException e){
+                    e.printStackTrace();
+                }
 
 
         }

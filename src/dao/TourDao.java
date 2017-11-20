@@ -63,10 +63,10 @@ public class TourDao implements TourDaoInterface {
                 st.setInt(1,id);
                 ResultSet resultSet = st.executeQuery();
                 while (resultSet.next()) {
-                      new Tour(resultSet.getInt("id"), resultSet.getString("name"),
+                      return new Tour(resultSet.getInt("id"), resultSet.getString("name"),
                             resultSet.getInt("hotel_id"), resultSet.getBoolean("special_mark"),
-                            resultSet.getString("description"),resultSet.getString("from_city"),
-                              resultSet.getString("to_city"));
+                            resultSet.getString("description"),resultSet.getString("from_city").toLowerCase(),
+                              resultSet.getString("to_city").toLowerCase());
 
                 }
             } catch (SQLException sql) {

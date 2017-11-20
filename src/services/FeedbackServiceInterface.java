@@ -8,4 +8,5 @@ public interface FeedbackServiceInterface {
     Feedback getFeedBackById(int id);
     List<Feedback> getAllFeedbacks();
     List<Feedback> getAllFeedBacksByUserId(int id);
+    boolean addFeedBack(Feedback feedback);
 }

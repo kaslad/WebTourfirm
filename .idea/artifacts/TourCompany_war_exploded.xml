@@ -9,6 +9,7 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="org.freemarker:freemarker:2.3.25-incubating" />
+          <element id="library" level="project" name="org.json:json:20080701" />
         </element>
       </element>
     </root>
