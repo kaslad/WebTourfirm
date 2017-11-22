@@ -10,4 +10,5 @@ public interface ConcreteTourDaoInterface {
     ConcreteTour getConcreteTourById(int id);
     List getAllConcreteToursByTourId(int id);
 
+
 }

@@ -18,7 +18,7 @@
 <div class="outer-back"></div>
 <div class="container log-gr">
     <div class="col-lg-8 col-lg-offset-2">
-        <form class="form-group well" method="post" action="#">
+        <form class="form-group well" method="post" id="form-1" action="#" >
             <h1 class="centered up">Login now</h1>
             <label class="lbl">Login</label>
             <input class="form-control" name = "login" type="text" hint="Login"
@@ -26,13 +26,16 @@
             <label class="lbl">Password</label>
             <input class="form-control" name = "password" type="password" hint="Password" placeholder="Password">
             <input class="btn htl" type="submit" value="Login">
+<div class="checkbox">
+<label><input type="checkbox" name="check"> Remember me</label>
+</div>
             <h2><button class="btn" id="reg-btn">Register</button></h2>
         </form>
     </div>
 </div>
 <div class="container reg-gr hidden">
     <div class="col-lg-8 col-lg-offset-2">
-        <form class="form-group well" action="#" method="post">
+        <form class="form-group well" action="#" id="form-2" method="post" >
             <h1 class="centered up">Register now</h1>
             <label class="lbl">Login</label>
             <input class="form-control" type="text" hint="Login"
@@ -47,9 +50,33 @@
 </div>
 </body>
 <script>
+
     $(document).ready(function(){
+        <#if login_pattern??>
+                $(".log-gr").slideUp(function() {
+                $(".reg-gr").hide().removeClass("hidden").slideDown()
+                })
+                alert('login doesnt match a regex')
+        <#else>
+            <#if password_pattern??>
+                    $(".log-gr").slideUp(function() {
+                    $(".reg-gr").hide().removeClass("hidden").slideDown()
+                    })
+            alert('password doesnt match a regex')
+
+        <#else>
+            <#if password_match??>
+                    $(".log-gr").slideUp(function() {
+                    $(".reg-gr").hide().removeClass("hidden").slideDown()
+                    })
+                    alert('passwords dont match')
+            </#if>
+            </#if>
+        </#if>
+
         $("#reg-btn").on("click", function() {
             $(".log-gr").slideUp(function() {
+
                 $(".reg-gr").hide().removeClass("hidden").slideDown()
             })
             return false;

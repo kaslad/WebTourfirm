@@ -54,6 +54,7 @@ public class UserDao implements UserDaoInterface{
                                     resultSet.getString("email"));
 
                     }
+
                 } catch (SQLException sql) {
                     sql.printStackTrace();
                 }

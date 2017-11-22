@@ -59,6 +59,7 @@ public class ResultServlet extends HttpServlet {
 
 
             String price [] = request.getParameter("price").split("-" );
+            System.out.println(request.getParameter("price") + " price");
             int fromPrice = Integer.parseInt(price[0]);
             int toPrice = Integer.parseInt(price[1]);
             mapTourAndItsConcTours = concreteTourService.getTourAndItsConcreteTours(fromCity, toCity, fromDate, toDate, fromPrice, toPrice);
@@ -85,8 +86,8 @@ public class ResultServlet extends HttpServlet {
 
         }
         root.put("list", list);
-
-
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         ConfigHelper.render(request,response,"results.ftl",(HashMap) root);
     }
     private static String getTimeStampDate(String s){

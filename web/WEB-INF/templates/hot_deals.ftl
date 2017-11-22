@@ -16,29 +16,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div id="img-b">
-<div class="outer-back"></div>
-</div>
+<#include "base_nav.ftl">
 
-<div id="img-b">
-<div class="outer-back"></div>
-</div>
-<nav class="navbar navbar-default h-nav">
-<div class="container-fluid">
-<ul class="nav navbar-nav">
-<li><a href="#" id="enter">Sign In</a></li>
-<li><a href="#" id="register">Sign Up</a></li>
-</ul>
-</div>
-</nav>
-<ul class="nav m-nav nav-stacked hidden-xs hidden-sm">
-<li><a href="" class="active">Main<span>&rsaquo;</span></a></li>
-<li><a href="">Hotels<span>&rsaquo;</span></a></li>
-<li><a href="">Tours<span>&rsaquo;</span></a></li>
-<li><a href="" class="danger">Hot sales<span>&rsaquo;</span></a></li>
-<li><a href="">About us<span>&rsaquo;</span></a></li>
-<li><a href="">Profile<span>&rsaquo;</span></a></li>
-</ul>
 <div class="col-lg-10 col-lg-offset-2">
 <div class="content">
 <div id="search">

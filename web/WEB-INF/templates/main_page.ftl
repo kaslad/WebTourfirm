@@ -15,22 +15,8 @@
     <script src="js/imageopen.js"></script>
 </head>
 <body>
-<div class="outer-back"></div>
-<nav class="navbar navbar-default h-nav">
-    <div class="container-fluid">
-        <ul class="nav navbar-nav">
-            <li><a href="/login" id="enter" >Sign In</a></li>
-            <li><a href="#" id="register">Sign Up</a></li>
-        </ul>
-    </div>
-</nav>
-<ul class="nav m-nav nav-stacked hidden-xs hidden-sm">
-    <li><a href="/main" class="active">Main<span>&rsaquo;</span></a></li>
-    <li><a href="/hotels">Hotels<span>&rsaquo;</span></a></li>
-    <li><a href="/tours">Tours<span>&rsaquo;</span></a></li>
-    <li><a href="/hot_sales" class="danger">Hot sales<span>&rsaquo;</span></a></li>
-    <li><a href="/about">About us<span>&rsaquo;</span></a></li>
-</ul>
+<#include "base_nav.ftl">
+
 <div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2">
     <img src="static/icons/airplane-icon-png-2497.png" class="slog">
     <h1 class="centered up">Start search your tour now...</h1>

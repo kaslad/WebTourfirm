@@ -8,5 +8,7 @@ public interface FeedbackDaoInterface {
     Feedback getFeedBackById(int id);
     List getAllFeedbacks();
     List getAllFeedBacksByUserId(int id);
-    boolean addFeedBack(Feedback feedback);
+
+
+    boolean addFeedBack(String text, int count, String date, int user_id);
 }

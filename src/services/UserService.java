@@ -71,6 +71,7 @@ public class UserService implements UserServiceInterface{
         err = null;
         User user = null;
         user = userDao.getUserByLogin(login);
+        System.out.println(user.getLogin() + " METHOD");
 
         if (user == null) {
             err = new MyError("", "user_not_found");
@@ -84,7 +85,8 @@ public class UserService implements UserServiceInterface{
     public User getUserById(int id) {
         err = null;
         User user = userDao.getUserById(id);
-        if (user.equals(null)) {
+        System.out.println("id  "  + id);
+        if (user == null) {
             err = new MyError("", "user_not_found");
             return null;
         } else {

@@ -104,13 +104,15 @@ $(document).ready(function() {
                 values:[0, 300],
                 slide: function(event, el) {
                     $( "#amount" ).html( "$" + el.values[ 0 ] + " - $" + el.values[ 1 ] );
-                    $("#slider").attr("from", el.values[0]);
-                    $("#slider").attr("to", el.values[1]);
+
+                    $("#slider").find("input").val(el.values[0] + "-" + el.values[1]);
                 }
+
         });
         $( "#amount" ).html( "$" + $( "#slider").slider("values",0) + " - $" + $( "#slider" ).slider( "values", 1 ) );
         });
-        
+    $("#slider").find("input").val("0-300");
+
         $("[data-toggle='tooltip']").tooltip();
         
         var par = document.getElementsByClassName("out-li");
@@ -138,15 +140,15 @@ $(document).ready(function() {
             $(".star").get(j).innerHTML = checkedStarCode;
         }
     })
-    
+
     $(".star").on("mouseout", function(e) {
-        var r = parseInt($("#rate-field").attr("rate"));
-        reinitStars(r + 1);
+        var r = parseInt($("#rate-field").attr("value"));
+        reinitStars(r);
     })
-    
+
     $(".star").on("click", function(e) {
         starSetted = $(".star").index(e.target);
-        $("#rate-field").attr("rate", starSetted);
+        $("#rate-field").attr("value", starSetted + 1);
     })
     
     $("#c-off").on("click", function() {

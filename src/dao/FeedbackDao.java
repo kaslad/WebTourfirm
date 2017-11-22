@@ -6,8 +6,11 @@ import entities.Feedback;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class FeedbackDao implements FeedbackDaoInterface {
@@ -51,18 +54,23 @@ public class FeedbackDao implements FeedbackDaoInterface {
         return null;
     }
 
+
+
     @Override
-    public boolean addFeedBack(Feedback feedback) {
-        if (DbSingleton.getConnection() != null && feedback != null) {
-            String request = "INSERT INTO feedback (id, feedback, user_id, rate, date) VALUES (?,?,?,?,?)";
+    public boolean addFeedBack(String text, int count, String date, int user_id) {
+        if (DbSingleton.getConnection() != null && text != null) {
+            String request = "INSERT INTO feedback (feedback, user_id, rate, date) VALUES (?,?,?,?)";
 
             try {
                 PreparedStatement st = DbSingleton.getConnection().prepareStatement(request);
-                st.setInt(1, feedback.getId());
-                st.setString(2, feedback.getFeedback());
-                st.setInt(3, feedback.getUserId());
-                st.setInt(4, feedback.getRate());
-                st.setString(5, feedback.getDate());
+
+                Date  today = new Date();
+                Timestamp timestamp = new Timestamp(today.getTime());
+
+                st.setString(1, text);
+                st.setInt(2, user_id);
+                st.setInt(3, count);
+                st.setTimestamp(4, timestamp);
 
 
                 st.executeUpdate();

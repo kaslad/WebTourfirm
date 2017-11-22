@@ -93,7 +93,7 @@ public class User {
         this.login = login;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 

@@ -48,6 +48,14 @@
         <servlet-name>ResultServlet</servlet-name>
         <servlet-class>servlets.ResultServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>logoutServlet</servlet-name>
+        <servlet-class>servlets.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
 
     <servlet>
 <servlet-name>login</servlet-name>
@@ -70,5 +78,28 @@
         <servlet-name>FeedBackServlet</servlet-name>
         <servlet-class>servlets.FeedBacksServlet</servlet-class>
     </servlet>
+    <filter>
+        <filter-name>loginfilter</filter-name>
+        <filter-class>filters.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>loginfilter</filter-name>
+        <servlet-name>login</servlet-name>
+    </filter-mapping>
+    <filter>
+        <filter-name>userfilter</filter-name>
+        <filter-class>filters.UserFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>userfilter</filter-name>
+        <servlet-name>profile</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>userfilter</filter-name>
+        <servlet-name>FeedBackServlet</servlet-name>
+    </filter-mapping>
+
+
 
 </web-app>

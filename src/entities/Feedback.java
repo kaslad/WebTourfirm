@@ -10,7 +10,12 @@ public class Feedback {
     private int userId;
 
 
-    public Feedback(String feedback, int rate, String date, int id, int user_id) {
+    public Feedback(String feedback, int rate, String date, int id, int userId) {
+        this.feedback = feedback;
+        this.rate = rate;
+        this.date = date;
+        this.id = id;
+        this.userId = userId;
     }
 
     public String getFeedback() {

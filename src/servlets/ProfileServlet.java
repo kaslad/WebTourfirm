@@ -4,6 +4,7 @@ import entities.User;
 import helpers.BDChanger;
 import helpers.ConfigHelper;
 import helpers.Hash;
+import services.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,16 +18,10 @@ import java.util.Map;
 @WebServlet(name = "ProfileServlet")
 public class ProfileServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        for(Map.Entry<String, String[]> s: request.getParameterMap().entrySet()){
-            System.out.print(s.getKey() +" ");
-            for(String i: s.getValue()){
-                System.out.print(i + " ");
-            }
-            System.out.println();
-        }
-        System.out.println(request.getParameterMap().entrySet().size());
+        UserService userService = new UserService();
+        User user = (User) request.getSession().getAttribute("current_user");
         String name = request.getParameter("name");
-        String login = request.getParameter("login").toLowerCase();
+        String login = request.getParameter("login");
         String email = request.getParameter("email");
 
         String lastName = request.getParameter("last_name");
@@ -39,10 +34,15 @@ public class ProfileServlet extends HttpServlet {
         String phoneNumber = request.getParameter("phone_number");
 
         int id = Integer.parseInt(request.getParameter("id"));
+        System.out.println(id);
 
 
         BDChanger.update("\"user\"", "name", id, "'" + name + "'");
-        BDChanger.update("\"user\"", "login", id, "'" + login + "'");
+        if(  userService.getUserByLogin(login) == null) {
+            BDChanger.update("\"user\"", "login", id, "'" + login + "'");
+            login = user.getLogin();
+            id = user.getId();
+        }
         BDChanger.update("\"user\"", "email", id, "'" + email + "'");
         BDChanger.update("\"user\"", "last_name", id, "'" + lastName + "'");
         BDChanger.update("\"user\"", "father_name", id, "'" + fatherName + "'");

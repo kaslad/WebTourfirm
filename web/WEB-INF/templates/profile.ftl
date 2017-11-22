@@ -16,25 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div id="img-b"><div class="outer-back"></div></div>
+<#include "base_nav.ftl">
 
-<div id="img-b"><div class="outer-back"></div></div>
-<nav class="navbar navbar-default h-nav">
-    <div class="container-fluid">
-        <ul class="nav navbar-nav">
-            <li><a href="#" id="enter">Sign In</a></li>
-            <li><a href="#" id="register">Sign Up</a></li>
-        </ul>
-    </div>
-</nav>
-<ul class="nav m-nav nav-stacked hidden-xs hidden-sm">
-    <li><a href="">Main<span>&rsaquo;</span></a></li>
-    <li><a href="">Hotels<span>&rsaquo;</span></a></li>
-    <li><a href="/tours">Tours<span>&rsaquo;</span></a></li>
-    <li><a href="" class="danger">Hot sales<span>&rsaquo;</span></a></li>
-    <li><a href="">About us<span>&rsaquo;</span></a></li>
-    <li><a href="" class="active">Profile<span>&rsaquo;</span></a></li>
-</ul>
 <div class="col-lg-8 col-lg-offset-3">
     <div class="content well row">
         <h1 class="centered up title">Profile</h1>
@@ -216,7 +199,7 @@
                 <form action="/profile?id=${id}" class="form-group" id="form1" method="post">
                     <label class="lbl">Login:</label>
                     <#if login?has_content>
-                        <input class="form-control" type="text" hint="" name = "login" value="${login}">
+                        <input class="form-control" type="text" hint="" name = "login" value="${login}"  >
                     <#else>
                         <input class="form-control" type="text" hint="" name = "login" value="">
                     </#if>
@@ -253,13 +236,13 @@
                     <div class="modal-body">
                         <label class="lbl">Passport series</label>
                     <#if passport_series??>
-                        <input class="form-control" id="passport_series" type="text" hint="" name ="passport_series" value="${passport_series}">
+                        <input class="form-control" id="passport_series" type="text" hint="" name ="passport_series" pattern="\d{4}" title="passport_series" value="${passport_series}"  >
                     <#else>
-                        <input class="form-control" id="passport_series" type="text" hint="" name ="passport_series">
+                        <input class="form-control" id="passport_series" type="text" hint="" name ="passport_series" pattern="\d{4}" title="passport_series" >
                     </#if>
                         <label class="lbl">Passport number</label>
                     <#if passport_number?has_content>
-                        <input class="form-control" type="text" hint="" name="passport_number" value="${passport_number}">
+                        <input class="form-control" type="text" hint="" name="passport_number" value="${passport_number}" >
                     <#else>
                         <input class="form-control" type="text" hint="" name="passport_number" >
                     </#if>
@@ -277,7 +260,7 @@
                     <h3 class="centered">Left fields empty to pass</h3>
                     <div class="modal-body">
                         <label class="lbl">New password</label>
-                        <input class="form-control" name="password" type="password" hint="">
+                        <input class="form-control" name="password" type="password" hint="" >
 
                     </div>
                 </form>
